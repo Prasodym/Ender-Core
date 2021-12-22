@@ -1,0 +1,16 @@
+name: jomlua-core
+version: 1.0.0
+main: de.jomlua.core
+prefix: Jomlua
+authors: [ Prasodym ]
+website: https://jomlua.de
+
+commands:
+  heal:
+    description: Dies heilt dich.
+  home:
+    description: teleportiere dich zu einen Home
+  sethome:
+    description: Setze einen neuen Home
+  homes:
+    description: Liste all deine Homes auf.
