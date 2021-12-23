@@ -1,5 +1,8 @@
 package de.jomlua.utils.config;
 
+import de.jomlua.core;
+import org.apache.logging.log4j.core.Core;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
@@ -8,12 +11,15 @@ import java.io.IOException;
 
 public class CoreConfig {
 
-Player player;
+
+    Player player;
 String path;
 
 CoreConfig(){
 
 }
+    private static FileConfiguration config = core.getPlugin().getConfig();
+
     public static boolean getBoolean(Player player, String path){
         File file = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
         YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
@@ -49,10 +55,17 @@ CoreConfig(){
     }
 
     public static int getintConfig(String path){
-        File file = new File("plugins/jomlua-core", "config.yml");
-        YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
-        return yml.getInt(path);
+        return config.getInt(path);
     }
+    public static void setConfig(String string, Object obj) throws IOException {
+        config.set(string, obj);
+        core.getPlugin().saveConfig();
+    }
+    public static double getCofigDouble(String obj){
+        return config.getDouble(obj);
+    }
+
+
 
 
 

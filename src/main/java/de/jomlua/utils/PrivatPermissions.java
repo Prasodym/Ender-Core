@@ -6,7 +6,12 @@ public enum PrivatPermissions {
     HOME("jomlua.home.use"),
     SETHOME("jomlua.sethome"),
     SETHOMEMULTI("jomlua.sethome.multi"),
-    CHATLITENER("jomlua.chat.color");
+    CHATLITENER("jomlua.chat.color"),
+    SETSPAWN("jomlua.spawn.set"),
+    SPAWN("jomlua.spawn"),
+    SPAWNOUT("jomlua.spawn.outher"),
+    TP("jomlua.tp"),
+    TPOS("jomlua.tpos");
 
     private String text;
 

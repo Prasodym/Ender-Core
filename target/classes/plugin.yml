@@ -14,3 +14,8 @@ commands:
     description: Setze einen neuen Home
   homes:
     description: Liste all deine Homes auf.
+  setspawn:
+    description: Setzt eon Globalen spawn
+  spawn:
+    description: Telepotiere dich zum einstigspunkt
+    aliases: [lobby]

@@ -14,3 +14,14 @@ commands:
     description: Setze einen neuen Home
   homes:
     description: Liste all deine Homes auf.
+  setspawn:
+    description: Setzt eon Globalen spawn
+  spawn:
+    description: Telepotiere dich zum einstigspunkt
+    aliases: [lobby]
+  tp:
+    description: Teleportiere dich zum anderen Spieler, ohne anfrage.
+  tpos:
+    description: Telepotiere dich zu einer bestimmten Position.
+  tphere:
+    description: Telepotiere ein Spieler zu dir, Ohne angfrage.

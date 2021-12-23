@@ -1,9 +1,7 @@
 package de.jomlua.utils;
 
 import com.sun.istack.internal.NotNull;
-import de.jomlua.commands.SetHome;
-import de.jomlua.commands.heal;
-import de.jomlua.commands.home;
+import de.jomlua.commands.*;
 import de.jomlua.core;
 import de.jomlua.utils.config.ChatOutputConfig;
 import org.bukkit.command.CommandExecutor;
@@ -33,6 +31,10 @@ public class getCommands {
         cmd("home", new home());
         cmd("sethome", new SetHome());
         cmd("homes", new home());
+        cmd("setspawn", new SetSpawn());
+        cmd("spawn", new Spawn());
+        cmd("tp", new Tp());
+        cmd("tpos", new Tp());
 
     }
 
