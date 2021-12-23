@@ -6,6 +6,7 @@ import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 
 public class ChatUtils {
     public ChatUtils(){
@@ -37,5 +38,11 @@ public class ChatUtils {
     }
     public static String Color(String text){
         return ChatColor.translateAlternateColorCodes('&',text);
+    }
+
+    public static void msg(Player player, String messages){
+        TextComponent text = new TextComponent();
+        text.setText(ChatUtils.Color(messages));
+        player.spigot().sendMessage(text);
     }
 }

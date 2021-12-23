@@ -11,7 +11,10 @@ public enum PrivatPermissions {
     SPAWN("jomlua.spawn"),
     SPAWNOUT("jomlua.spawn.outher"),
     TP("jomlua.tp"),
-    TPOS("jomlua.tpos");
+    TPOS("jomlua.tpos"),
+    WARP("jomlua.warp"),
+    DELWARP("jomlua.warp.delete"),
+    SETWARP("jomlua.warp.set");
 
     private String text;
 

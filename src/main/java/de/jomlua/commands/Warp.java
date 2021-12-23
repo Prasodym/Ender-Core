@@ -1,6 +1,7 @@
 package de.jomlua.commands;
 
 import de.jomlua.utils.ChatOutput;
+import de.jomlua.utils.ChatUtils;
 import de.jomlua.utils.PrivatPermissions;
 import de.jomlua.utils.modules.Teleport;
 import org.bukkit.command.Command;
@@ -17,7 +18,7 @@ public class Warp implements CommandExecutor {
         Player player = (Player) sender;
         String prefix = ChatOutput.PREFIX.getText();
 
-        if (!(player.hasPermission(PrivatPermissions.SETSPAWN.getText()))){
+        if (!(player.hasPermission(PrivatPermissions.WARP.getText()))){
             player.sendMessage(prefix + ChatOutput.NO_PERMISSIONS.getText());
             return true;
         }
@@ -43,6 +44,10 @@ public class Warp implements CommandExecutor {
             }
         }
         if (command.getName().equalsIgnoreCase("setwarp")) {
+            if (!(player.hasPermission(PrivatPermissions.SETWARP.getText()))){
+                player.sendMessage(prefix + ChatOutput.NO_PERMISSIONS.getText());
+                return true;
+            }
             if (args.length == 1) {
 
                     try {
@@ -55,7 +60,38 @@ public class Warp implements CommandExecutor {
 
             }else{
                 player.sendMessage(ChatOutput.PREFIX.getText() + "§7Befehle die dir helfen könnten.");
-                player.sendMessage("§7- §e/§bwarp §c[name]");
+                player.sendMessage("§7- §e/§bsetwarp §c<name>");
+            }
+        }
+        if (command.getName().equalsIgnoreCase("delwarp")){
+            if (!(player.hasPermission(PrivatPermissions.DELWARP.getText()))){
+                player.sendMessage(prefix + ChatOutput.NO_PERMISSIONS.getText());
+                return true;
+            }
+            if (args.length == 1){
+                if (Teleport.getBooleanWarp(args[0])){
+                    try {
+                        Teleport.DeleteWarp(player, args[0]);
+                        ChatUtils.msg(player, prefix + "&fDu hast den Warp &c" + args[0] +" &fgelöscht.");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    ChatUtils.msg(player, "Dieser Warp (" + args[0] + ") existiert nicht");
+                }
+
+            }else{
+                player.sendMessage(ChatOutput.COMMAND_HELP.getText());
+                ChatUtils.msg(player, "&7 - &e/&bdelwarp &c<warpname>");
+            }
+
+        }
+        if (command.getName().equalsIgnoreCase("warps")){
+            if (args.length == 0){
+
+            }else{
+                ChatUtils.msg(player, ChatOutput.COMMAND_HELP.getText());
+                ChatUtils.msg(player, "&7 - &e/&bwarps");
             }
         }
 

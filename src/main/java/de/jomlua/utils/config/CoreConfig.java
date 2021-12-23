@@ -65,6 +65,10 @@ CoreConfig(){
         return config.getDouble(obj);
     }
 
+    public static String getDiscord (){
+        return config.get("discord").toString();
+    }
+
 
 
 

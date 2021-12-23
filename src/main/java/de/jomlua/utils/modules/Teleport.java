@@ -36,6 +36,7 @@ public class Teleport {
         Location location = new Location(world,x,y,z,yaw,pitch);
         return location;
     }
+
     public static Location TeleportWarp(String WarpName){
         YamlConfiguration yaml = YamlConfiguration.loadConfiguration(Cwarp);
         World world = Bukkit.getWorld(yaml.getString("Warps." + WarpName + ".world"))   ;
