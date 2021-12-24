@@ -1,12 +1,13 @@
 package de.jomlua.utils;
 
-import com.sun.istack.internal.NotNull;
+
 import de.jomlua.commands.*;
 import de.jomlua.core;
 import de.jomlua.utils.config.ChatOutputConfig;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
@@ -35,6 +36,11 @@ public class getCommands {
         cmd("spawn", new Spawn());
         cmd("tp", new Tp());
         cmd("tpos", new Tp());
+        cmd("discord", new discord());
+        cmd("warp", new Warp());
+        cmd("setwarp", new Warp());
+        cmd("delwarp", new Warp());
+        cmd("warps", new Warp());
 
     }
 

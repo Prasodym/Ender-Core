@@ -4,6 +4,7 @@ import de.jomlua.utils.ChatOutput;
 import de.jomlua.utils.ChatUtils;
 import de.jomlua.utils.PrivatPermissions;
 import de.jomlua.utils.modules.Teleport;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -29,6 +30,10 @@ public class Warp implements CommandExecutor {
 
         if (command.getName().equalsIgnoreCase("warp")) {
             if (args.length == 1) {
+                if (!(player.hasPermission(PrivatPermissions.SETWARP.getText()) && player.hasPermission("jomlua.warp." + args[0]))){
+                    player.sendMessage(prefix + ChatOutput.NO_PERMISSIONS.getText());
+                    return true;
+                }
                 if (Teleport.getBooleanWarp(args[0])) {
 
                    player.teleport(Teleport.TeleportWarp(args[0]));
@@ -49,7 +54,7 @@ public class Warp implements CommandExecutor {
                 return true;
             }
             if (args.length == 1) {
-
+                if (Teleport.getBooleanWarp(args[0])){
                     try {
                         Teleport.SetWarp(player,args[0]);
                     } catch (IOException e) {
@@ -57,6 +62,10 @@ public class Warp implements CommandExecutor {
                     }
 
                     player.sendMessage(ChatOutput.PREFIX.getText() + "§a Warp §c" + args[0] + " §awurde gesetzt.");
+                } else{
+                    ChatUtils.msg(player, "Dieser warp &7(&c" + args[0] + "&7) &fexistiert bereits.");
+                }
+
 
             }else{
                 player.sendMessage(ChatOutput.PREFIX.getText() + "§7Befehle die dir helfen könnten.");
@@ -88,7 +97,7 @@ public class Warp implements CommandExecutor {
         }
         if (command.getName().equalsIgnoreCase("warps")){
             if (args.length == 0){
-
+                ChatUtils.msg(player, "Comming soon.");
             }else{
                 ChatUtils.msg(player, ChatOutput.COMMAND_HELP.getText());
                 ChatUtils.msg(player, "&7 - &e/&bwarps");

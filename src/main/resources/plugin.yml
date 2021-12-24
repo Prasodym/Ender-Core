@@ -25,3 +25,15 @@ commands:
     description: Telepotiere dich zu einer bestimmten Position.
   tphere:
     description: Telepotiere ein Spieler zu dir, Ohne angfrage.
+  discord:
+    description: Zeigt dir ein in der config festgelegten Discord Link.
+    aliases: [dc]
+  warp:
+    description: Telepotiere dich zu einen warp.
+  delwarp:
+    description: Lösche einen besteneden Warp.
+  setwarp:
+    description: Setze einen neuen warp.
+  warps:
+    description: Listen alle warps auf.
+
