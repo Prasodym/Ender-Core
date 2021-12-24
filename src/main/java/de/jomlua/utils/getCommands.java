@@ -42,6 +42,8 @@ public class getCommands {
         cmd("setwarp", new Warp());
         cmd("delwarp", new Warp());
         cmd("warps", new Warp());
+        cmd("randomtp", new randomTeleport());
+        cmd("worldborder", new randomTeleport());
 
         //set Tabcompletion
         core.plugin.getCommand("warp").setTabCompleter(new Warp());
