@@ -1,7 +1,6 @@
 package de.jomlua.utils.config;
 
 import de.jomlua.core;
-import org.apache.logging.log4j.core.Core;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -11,9 +10,8 @@ import java.io.IOException;
 
 public class CoreConfig {
 
-
     Player player;
-String path;
+    String path;
 
 CoreConfig(){
 

@@ -31,6 +31,12 @@ public class ChatUtils {
         tc.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,command));
         return tc;
     }
+    public static TextComponent TcLink(String text, String linkadress, String Hovertext){
+        TextComponent tc = new TextComponent();
+        tc.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(Color(Hovertext)).create() ));
+        tc.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, ChatUtils.Color(linkadress)));
+        return tc;
+    }
     public static TextComponent TcText(String text){
         TextComponent tc =new TextComponent();
         tc.setText(Color(text));
@@ -41,8 +47,6 @@ public class ChatUtils {
     }
 
     public static void msg(Player player, String messages){
-        TextComponent text = new TextComponent();
-        text.setText(ChatUtils.Color(messages));
-        player.spigot().sendMessage(text);
+        player.sendMessage(ChatUtils.Color(messages));
     }
 }

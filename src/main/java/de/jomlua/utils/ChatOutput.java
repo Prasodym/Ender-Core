@@ -14,7 +14,9 @@ public enum ChatOutput {
     COMMAND_HELP("help.header", "&aBefehle die dir Helfen könnten:"),
     COMMAND_HOME_TELEPORT("home.teleport", "Teleport.."),
     COMANND_HOME_DEFAULTEXIST("home.defaultexist", "Das Home &c%home% &fexistiert nicht."),
-    COMMAND_HOME_SET("home.set", "Dein Home &cHome &fwurde gespeichert.");
+    COMMAND_HOME_SET("home.set", "Dein Home &cHome &fwurde gespeichert."),
+    COMMAND_DISCORD_HEADER("Discord.adress", "&7Folgende Discord Adresse:"),
+    COMMAND_TS_HERDER("Teamspeak.adress", "&7Folgende Teamspeak adresse:");
 
 
 
