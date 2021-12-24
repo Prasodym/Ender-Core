@@ -12,6 +12,9 @@ commands:
     description: teleportiere dich zu einen Home
   sethome:
     description: Setze einen neuen Home
+  delhome:
+    description: Löscdhe deinen home
+    aliases: [dhome]
   homes:
     description: Liste all deine Homes auf.
   setspawn:
@@ -19,3 +22,21 @@ commands:
   spawn:
     description: Telepotiere dich zum einstigspunkt
     aliases: [lobby]
+  tp:
+    description: Teleportiere dich zum anderen Spieler, ohne anfrage.
+  tpos:
+    description: Telepotiere dich zu einer bestimmten Position.
+  tphere:
+    description: Telepotiere ein Spieler zu dir, Ohne angfrage.
+  discord:
+    description: Zeigt dir ein in der config festgelegten Discord Link.
+    aliases: [dc]
+  warp:
+    description: Telepotiere dich zu einen warp.
+  delwarp:
+    description: Lösche einen besteneden Warp.
+  setwarp:
+    description: Setze einen neuen warp.
+  warps:
+    description: Listen alle warps auf.
+

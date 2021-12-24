@@ -20,7 +20,7 @@ public class Teleport {
     public Teleport() {
     }
 
-    private static File Cwarp = new File(core.plugin.getDataFolder().getPath() + "warps.yml");
+    private static File Cwarp = new File("plugins/jomlua-core/warps.yml");
 
 
     public static Location TeleportConfig(String path){
@@ -36,7 +36,19 @@ public class Teleport {
         Location location = new Location(world,x,y,z,yaw,pitch);
         return location;
     }
+    public static Location DefaultHome(Player player){
+        File file = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
+        YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
 
+        World world = Bukkit.getWorld(config.getString("homes.home.world"))   ;
+        double x = config.getDouble("homes.home.x");
+        double y = config.getDouble("homes.home.y");
+        double z = config.getDouble("homes.home.z");
+        float yaw = (float) config.getDouble("homes.home.yaw");
+        float pitch= (float) config.getDouble("homes.home.pitch");
+
+        return new Location(world,x,y,z,yaw,pitch);
+    }
     public static Location TeleportWarp(String WarpName){
         YamlConfiguration yaml = YamlConfiguration.loadConfiguration(Cwarp);
         World world = Bukkit.getWorld(yaml.getString("Warps." + WarpName + ".world"))   ;
@@ -82,7 +94,27 @@ public class Teleport {
         Bukkit.getLogger().log(Level.INFO, ChatOutput.PREFIX.getText() + "Es wurde von§c" + player.getDisplayName() + "§fder Warp §c" + warpname + " §fentfernt.");
     }
 
-    private static List<String> getWarp(){
+    public static void DeleteHome(Player player, String warpname) throws IOException {
+        File file = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
+        YamlConfiguration conf = YamlConfiguration.loadConfiguration(file);
+        if (conf.isSet("homes." + warpname)){
+            conf.set("homes." + warpname, null);
+            conf.set("homes." + warpname + ".world", null);
+            conf.set("homes." + warpname + ".x", null);
+            conf.set("homes." + warpname + ".y", null);
+            conf.set("homes." + warpname + ".z", null);
+            conf.set("homes." + warpname + ".yaw", null);
+            conf.set("homes." + warpname + ".pitch", null);
+            conf.save(file);
+            Chatinterfaces.ListetHomeInterface(player);
+            player.sendMessage(ChatOutput.PREFIX.getText() + "§aDein Home §c" + warpname + " §awurde gelöscht.");
+        }else{
+            player.sendMessage(ChatOutput.PREFIX.getText() + "§cDiser Home §f" + warpname + " §cexistiert nicht!");
+        }
+
+    }
+
+    public static List<String> getWarp(){
         File file = new File("plugins/jomlua-core", "warps.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
         List<String> warps = new ArrayList<>();

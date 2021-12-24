@@ -12,6 +12,9 @@ commands:
     description: teleportiere dich zu einen Home
   sethome:
     description: Setze einen neuen Home
+  delhome:
+    description: Löscdhe deinen home
+    aliases: [dhome]
   homes:
     description: Liste all deine Homes auf.
   setspawn:

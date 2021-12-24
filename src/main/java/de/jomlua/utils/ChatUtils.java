@@ -19,6 +19,7 @@ public class ChatUtils {
      * @param hoverText Infotext when hovering the mouse over it
      * @return Chat output sin clickable
      */
+    @Deprecated
     public static TextComponent TcCommand(String text, String command, String hoverText){
 //        TextComponent msga = new TextComponent();
 //        msga.setText(" §c[Teleport]");
@@ -31,8 +32,9 @@ public class ChatUtils {
         tc.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,command));
         return tc;
     }
+    @Deprecated
     public static TextComponent TcLink(String text, String linkadress, String Hovertext){
-        TextComponent tc = new TextComponent();
+        TextComponent tc = new TextComponent(text);
         tc.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(Color(Hovertext)).create() ));
         tc.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, ChatUtils.Color(linkadress)));
         return tc;

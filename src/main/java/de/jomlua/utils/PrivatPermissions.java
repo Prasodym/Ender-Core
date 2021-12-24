@@ -4,7 +4,7 @@ public enum PrivatPermissions {
 
     HEAL("jomlua.heal"),
     HOME("jomlua.home.use"),
-    SETHOME("jomlua.sethome"),
+    SETHOME("jomlua.home.set"),
     SETHOMEMULTI("jomlua.sethome.multi"),
     CHATLITENER("jomlua.chat.color"),
     SETSPAWN("jomlua.spawn.set"),

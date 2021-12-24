@@ -1,6 +1,7 @@
 package de.jomlua.utils.config;
 
 import de.jomlua.core;
+import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -52,6 +53,7 @@ CoreConfig(){
         yml.save(file);
     }
 
+
     public static int getintConfig(String path){
         return config.getInt(path);
     }
@@ -64,7 +66,7 @@ CoreConfig(){
     }
 
     public static String getDiscord (){
-        return config.get("discord").toString();
+        return config.getString("discord");
     }
 
 

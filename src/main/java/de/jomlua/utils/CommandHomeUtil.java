@@ -56,8 +56,9 @@ public class CommandHomeUtil {
 
     public static Set<String> getHomePoints(Player player){
         File file = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
-        if (file.exists()){
-            YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
+        YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
+        if (yml.isSet("homes.")){
+
             return yml.getConfigurationSection("homes.").getKeys(false);
         }else{
             return new HashSet<String>();

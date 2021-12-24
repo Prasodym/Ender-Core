@@ -19,6 +19,7 @@ public class discord implements CommandExecutor {
             if (args.length == 0){
                 ChatUtils.msg(player, ChatOutput.PREFIX.getText() + ChatOutput.COMMAND_DISCORD_HEADER.getText());
                 ChatUtils.msg(player,"");
+
                 TextComponent tc = ChatUtils.TcLink(CoreConfig.getDiscord(), CoreConfig.getDiscord(),"Klicke um die gruppe bei zu treten.");
                 player.spigot().sendMessage(tc);
             }

@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.util.HashMap;
+
 
 public class SetHome implements CommandExecutor {
     @Override
@@ -41,14 +41,17 @@ public class SetHome implements CommandExecutor {
             }
         }else if (args.length == 1){
             if (homes == homecount && !player.hasPermission(PrivatPermissions.SETHOMEMULTI.getText())){
-                player.sendMessage(prefix + "Du hast bereits §c" + homecount + "§fHomes, Lösche einen Home um ein neuen zu setzen.");
+                player.sendMessage(prefix + "§fDu hast bereits §c" + homecount + " §fHomes, Lösche einen Home um ein neuen zu setzen.");
+            }else{
+                try {
+                    CommandHomeUtil.CreateHome(player,location,args[0]);
+                    player.sendMessage(prefix + "Dein Home §c" + args[0] + " §fwurde gesetzt.");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-            try {
-                CommandHomeUtil.CreateHome(player,location,args[0]);
-                player.sendMessage(prefix + "Dein Home §c" + args[0] + " §fwurde gesetzt.");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+
         }
 
         return true;

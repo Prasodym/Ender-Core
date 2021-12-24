@@ -31,6 +31,7 @@ public class getCommands {
         cmd("heal", new heal());
         cmd("home", new home());
         cmd("sethome", new SetHome());
+        cmd("delhome", new home());
         cmd("homes", new home());
         cmd("setspawn", new SetSpawn());
         cmd("spawn", new Spawn());
@@ -42,6 +43,8 @@ public class getCommands {
         cmd("delwarp", new Warp());
         cmd("warps", new Warp());
 
+        //set Tabcompletion
+        core.plugin.getCommand("warp").setTabCompleter(new Warp());
     }
 
     /**
