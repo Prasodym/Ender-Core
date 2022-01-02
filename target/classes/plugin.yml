@@ -44,4 +44,36 @@ commands:
     description: Teleportiert dich zufällig irgendwo hin.
   worldborder:
     description: Lege eine worldborder Fest.
+  test:
+    description: Debug
+  gethome:
+    description: Listet alle homes eines Spielers auf.
+  atphome:
+    description: plungin interner befehl
+  worldmanager:
+    description: Vollerwertiger Welt manager.
+    aliases: [mw]
+  fly:
+    description: De- & Aktiviere Fliegen.
+  gm:
+    description: Wechsel zwischen den verschiedene Gamemodis.
+    aliases: [gamemode]
+  tpa:
+    description: Sende eine anfrage zum spieler
+  tpahere:
+    description: dende eine anfragen zum spieler ob er zu die möchte.
+  tpacept:
+    description: Die tpa anfrage annehmen.
+  tpadeny:
+    description: Die tpa anfrage ablehnen.
+  rules:
+    description: Zeigt die die Serverregeln.
+  back:
+    description: Teleportiere dich zum letzten ort zurück
+  createkit:
+    description: Speicher ein kit mit dein Inventarcontent.
+  kit:
+    description: Hole dir ein Kit
+  kits:
+    description: Listet alle kits auf
 

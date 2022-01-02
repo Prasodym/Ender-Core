@@ -3,6 +3,7 @@ package de.jomlua.utils;
 import de.jomlua.utils.config.CoreConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -63,5 +64,20 @@ public class CommandHomeUtil {
         }else{
             return new HashSet<String>();
         }
+    }
+
+    public static void TeleportTargetHome(Player player, String home, OfflinePlayer target){
+        File file = new File("plugins/jomlua-core/users", target.getUniqueId() + ".yml");
+        YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
+
+        World world = Bukkit.getWorld(yml.getString( "homes." + home + ".world"));
+        double x = yml.getDouble("homes." + home + ".x");
+        double y = yml.getDouble("homes." + home + ".y");
+        double z = yml.getDouble( "homes." + home + ".z");
+        float yaw = (float) yml.getDouble("homes." + home + ".yaw");
+        float pitch = (float) yml.getDouble( "homes." + home + ".pitch");
+
+        Location location = new Location(world,x,y,z,yaw,pitch);
+        player.teleport(location);
     }
 }

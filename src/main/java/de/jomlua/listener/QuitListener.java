@@ -28,8 +28,18 @@ public class QuitListener implements Listener {
         YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
         String location = player.getLocation().toString();
         Timestamp time = new Timestamp(System.currentTimeMillis());
+        double x = player.getLocation().getX();
+        double y = player.getLocation().getY();
+        double z = player.getLocation().getZ();
+        double yaw = (float) player.getLocation().getYaw();
+        double pitch = (float) player.getLocation().getPitch();
 
-        yml.set("lastplayed.location", location);
+
+        yml.set("lastplayed.location.x", x);
+        yml.set("lastplayed.location.y", y);
+        yml.set("lastplayed.location.z", z);
+        yml.set("lastplayed.location.yaw", yaw);
+        yml.set("lastplayed.location.pitch", pitch);
         yml.set("lastplayed.time", time.toString());
         yml.save(file);
         Bukkit.getLogger().log(Level.INFO, ChatOutput.PREFIX.getText() + "Save " + player.getDisplayName() + " userdata in users/" + player.getUniqueId() + ".yml");

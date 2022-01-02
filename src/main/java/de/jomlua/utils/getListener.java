@@ -1,10 +1,7 @@
 package de.jomlua.utils;
 
 import de.jomlua.core;
-import de.jomlua.listener.ChatListener;
-import de.jomlua.listener.DeathListener;
-import de.jomlua.listener.JoinListener;
-import de.jomlua.listener.QuitListener;
+import de.jomlua.listener.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 
@@ -21,6 +18,7 @@ public class getListener {
         pm.registerEvents(new DeathListener(), r);
         pm.registerEvents(new QuitListener(), r);
         pm.registerEvents(new JoinListener(), r);
+        pm.registerEvents(new TeleportEvent(),r);
         //pm.registerEvents(new PermissionPicker(),r);
     }
 }

@@ -38,10 +38,6 @@ public class Warp implements CommandExecutor, TabCompleter {
 
         if (command.getName().equalsIgnoreCase("warp")) {
             if (args.length == 1) {
-                if (!(player.hasPermission(PrivatPermissions.SETWARP.getText()) && player.hasPermission("jomlua.warp." + args[0]))){
-                    player.sendMessage(prefix + ChatOutput.NO_PERMISSIONS.getText());
-                    return true;
-                }
                 if (Teleport.getBooleanWarp(args[0])) {
 
                    player.teleport(Teleport.TeleportWarp(args[0]));

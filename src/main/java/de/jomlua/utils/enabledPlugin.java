@@ -20,6 +20,6 @@ public class enabledPlugin {
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&',ChatOutput.PREFIX.getText()) + "§3(_)  _  (_)(_) _  _  _ (_)(_)   (_)   (_) _ (_) _(_)_  _  _(_)_(_)_  _  _ (_)_ ");
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&',ChatOutput.PREFIX.getText()) + "§3 (_)(_)(_)    (_)(_)(_)   (_)   (_)   (_)(_)(_)(_) (_)(_)(_) (_) (_)(_)(_)  (_)");
         Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&',ChatOutput.PREFIX.getText()) + "");
-        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&',ChatOutput.PREFIX.getText()) + "§2Version: §c0.3.8 | §eServerversion: §c" + serverversion);
+        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&',ChatOutput.PREFIX.getText()) + "§2Version: §c0.3.9 | §eServerversion: §c" + serverversion);
     }
 }

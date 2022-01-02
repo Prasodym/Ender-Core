@@ -52,6 +52,12 @@ CoreConfig(){
         yml.set(path,data);
         yml.save(file);
     }
+    public static void setServerRules(Player player)throws IOException {
+        File file = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
+        YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
+        yml.set("userdata.rules",true);
+        yml.save(file);
+    }
 
 
     public static int getintConfig(String path){
@@ -69,7 +75,15 @@ CoreConfig(){
         return config.getString("discord");
     }
 
-
+    public static void LoadConfig(String file){
+        File customConfigFile = new File(core.plugin.getDataFolder(), file);
+        if (!customConfigFile.exists()) {
+            // Erstelle eine "messages.yml" in dem Dateiordner deines Plugins
+            // mit dem Inhalt der Datei "messages.yml" in deiner .jar
+            core.plugin.saveResource(file, true);
+        }
+        FileConfiguration customConfig = YamlConfiguration.loadConfiguration(customConfigFile);
+    }
 
 
 

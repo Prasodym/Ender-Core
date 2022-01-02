@@ -1,0 +1,17 @@
+kits:
+  start:
+    delay: 1
+    items:
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SWORD
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_AXE
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_SPADE
+      - ==: org.bukkit.inventory.ItemStack
+        type: DIAMOND_PICKAXE
+      - ==: org.bukkit.inventory.ItemStack
+        type: SHEARS
+      - ==: org.bukkit.inventory.ItemStack
+        type: COOKED_BEEF
+        amount: 64

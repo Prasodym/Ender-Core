@@ -1,4 +1,32 @@
+# Lege fest wieviele Homes für spielers erlaubt sind.
 homecount: 3
+# Die Discord Adresse für den befehl /discord oder /dc
 discord: discord.gg/6dj6sBX
+# Config Worldborder
 worldborder:
+  # Stelle die Wweltgrenze an oder aus mit true/false
   enabled: true
+  # Hier kann die weltgrenze von der größe her geändert werden. Oder auch Intern mit /worldborder <radius>
+  world:
+    size: 2000
+# Spawn position
+Spawn:
+  world: world
+  x: 0
+  y: 75
+  z: 0
+  pitch: 10.650002
+  yaw: -58.79727
+# Join benachrichtigung de-/aktivieren
+enabled-motd: true
+# Benachrichtigung wenn ein Spieler in Spiel kommt
+motd-msg:
+  - '&8&l|::::::::::::::::::::::::::::::: &3Space &aRemix Server &8&l::::::::::::::::::::::::::::::::>'
+  - '&8&l|'
+  - '&8&l|        &7Willkommen zurück, &l%PLAYER%&7!'
+  - '&8&l|        &bEs sind gerade &l%ONLINE% &bSpieler online.'
+  - '&8&l|        &7Hompage:     &ahttps://ender.games/'
+  - '&8&l|        &7Teamspeak³: &ats.ender.games'
+  - '&8&l|        &7Discord:      &ahttps://discord.gg/6dj6sBX'
+  - '&8&l|'
+  - '&8&l|::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::>'

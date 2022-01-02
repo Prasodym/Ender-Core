@@ -1,27 +1,35 @@
 package de.jomlua;
 
 import de.jomlua.utils.ChatOutput;
+import de.jomlua.utils.config.CoreConfig;
 import de.jomlua.utils.enabledPlugin;
 import de.jomlua.utils.getCommands;
 import de.jomlua.utils.getListener;
 import net.milkbowl.vault.chat.Chat;
+import org.bukkit.Bukkit;
+import org.bukkit.WorldCreator;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.plugin.messaging.ChannelNameTooLongException;
+
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 
 
 
 public final class core extends JavaPlugin {
+    public static File file = new File("plugins/jomlua-core", "worlds.yml");
+    public static YamlConfiguration worldlist =YamlConfiguration.loadConfiguration(file);
+
     public static core plugin;
     public static Chat chat;
     public static boolean vaultEnabled = true;
+    public static List<String> MAPS = worldlist.getStringList("Worlds");
 
 
     @Override
@@ -35,6 +43,15 @@ public final class core extends JavaPlugin {
 
         getCommands.setUp();
         getListener.setUp();
+
+        for (String map : MAPS) {
+            WorldCreator w = WorldCreator.name(map);
+            Bukkit.createWorld(w);
+            Bukkit.getWorlds().add(Bukkit.getWorld(map));
+        }
+        CoreConfig.LoadConfig("rules.yml");
+        CoreConfig.LoadConfig("kit.yml");
+
     }
 
 
@@ -76,5 +93,6 @@ public final class core extends JavaPlugin {
         File file = new File("plugins/Core", "config.yml");
         return YamlConfiguration.loadConfiguration(file);
     }
+
 
 }

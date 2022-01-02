@@ -14,7 +14,11 @@ public enum PrivatPermissions {
     TPOS("jomlua.tpos"),
     WARP("jomlua.warp"),
     DELWARP("jomlua.warp.delete"),
-    SETWARP("jomlua.warp.set");
+    SETWARP("jomlua.warp.set"),
+    GETHOME("jomlua.admin.gethome"),
+    FLY("jomlua.admin.fly"),
+    WORLDMANAGER("jomlua.admin.world"),
+    GAMEMODE("jomlua.admin.gamemode");
 
     private String text;
 

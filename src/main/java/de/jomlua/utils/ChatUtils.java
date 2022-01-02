@@ -6,7 +6,10 @@ import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.chat.hover.content.Text;
 import org.bukkit.ChatColor;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
+
+import static de.jomlua.core.chat;
 
 public class ChatUtils {
     public ChatUtils(){
@@ -39,6 +42,12 @@ public class ChatUtils {
         tc.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, ChatUtils.Color(linkadress)));
         return tc;
     }
+    @Deprecated
+    public static TextComponent TcHover(String text, String Hovertext){
+        TextComponent tc = new TextComponent(text);
+        tc.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder(Color(Hovertext)).create() ));
+        return tc;
+    }
     public static TextComponent TcText(String text){
         TextComponent tc =new TextComponent();
         tc.setText(Color(text));
@@ -50,5 +59,13 @@ public class ChatUtils {
 
     public static void msg(Player player, String messages){
         player.sendMessage(ChatUtils.Color(messages));
+    }
+    public static String getPrefixName(Player player){
+        World getworld = player.getWorld();
+        String group = chat.getPrimaryGroup(player);
+        String suffix = chat.getPlayerSuffix(player);
+        String prefix = chat.getGroupPrefix(getworld,group);
+        String world = getworld.getName();
+        return prefix + player.getDisplayName();
     }
 }

@@ -115,19 +115,19 @@ public class Teleport {
     }
 
     public static List<String> getWarp(){
-        File file = new File("plugins/jomlua-core", "warps.yml");
+        File file = new File("plugins/jomlua-core/warps.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
-        List<String> warps = new ArrayList<>();
+        List<String> warpse = new ArrayList<>();
 
-
-        Iterator var10 = cfg.getKeys(false).iterator();
+        //Iterator<String> WhileHome = cnf.getConfigurationSection("Warps.").getKeys(true).iterator();
+        Iterator var10 = cfg.getConfigurationSection("Warps.").getKeys(false).iterator();
         while (var10.hasNext()) {
             String arg = (String) var10.next();
             if (!arg.contains(".")) {
-                warps.add(arg);
+                warpse.add(arg);
             }
         }
-        return warps;
+        return warpse;
     }
     public static boolean getBooleanWarp(String path){
         YamlConfiguration yml = YamlConfiguration.loadConfiguration(Cwarp);

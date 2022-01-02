@@ -7,10 +7,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 public abstract class CoreCommand implements CommandExecutor, TabCompleter {
 
-    public static  void RegisterCommands(core core, CoreCommand... cmd){
+    public static  void RegisterCommands(core core, CoreCommand @NotNull ... cmd){
         for (CoreCommand command : cmd){
             core.getCommand(command.getName()).setExecutor(command);
             if (command.hasCompleter()) core.getCommand(command.getName()).setTabCompleter(command);
@@ -40,7 +41,7 @@ public abstract class CoreCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', ChatOutput.PREFIX.getText() + ChatOutput.COMMAND_HELP.getText()));
             sender.sendMessage("");
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&7- &e/&a" + getHelpCommand()));
-            return false;
+            return true;
         }
         else if (Bukkit.getPlayerExact(args[0]) == null){
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', ChatOutput.PREFIX.getText()) + "&cDer Spieler $f" + args[0] + " &cist gerade nicht online.");
