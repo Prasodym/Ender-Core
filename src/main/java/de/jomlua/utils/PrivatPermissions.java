@@ -18,6 +18,8 @@ public enum PrivatPermissions {
     GETHOME("jomlua.admin.gethome"),
     FLY("jomlua.admin.fly"),
     WORLDMANAGER("jomlua.admin.world"),
+    ADMIN("jomlua.admin"),
+    VANISH("jomlua.vanish"),
     GAMEMODE("jomlua.admin.gamemode");
 
     private String text;

@@ -5,6 +5,7 @@ import de.jomlua.utils.config.CoreConfig;
 import de.jomlua.utils.enabledPlugin;
 import de.jomlua.utils.getCommands;
 import de.jomlua.utils.getListener;
+import de.jomlua.utils.modules.VanishManager;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.WorldCreator;
@@ -27,6 +28,7 @@ public final class core extends JavaPlugin {
     public static YamlConfiguration worldlist =YamlConfiguration.loadConfiguration(file);
 
     public static core plugin;
+    private VanishManager vManager;
     public static Chat chat;
     public static boolean vaultEnabled = true;
     public static List<String> MAPS = worldlist.getStringList("Worlds");
@@ -40,6 +42,7 @@ public final class core extends JavaPlugin {
         loadingConfigs();
 
         plugin = this;
+        this.vManager = new VanishManager(this);
 
         getCommands.setUp();
         getListener.setUp();
@@ -54,12 +57,6 @@ public final class core extends JavaPlugin {
 
     }
 
-
-
-
-
-
-
     @Override
     public void onDisable() {
         System.out.println("§eBis bald!");
@@ -67,6 +64,10 @@ public final class core extends JavaPlugin {
 
     public static core getPlugin(){
         return plugin;
+    }
+
+    public VanishManager getvManager(){
+        return vManager;
     }
 
     private void loadingConfigs(){
@@ -79,6 +80,8 @@ public final class core extends JavaPlugin {
         if (!setUpChat()){
             this.getLogger().log(Level.WARNING, "The Vault plugin could not be found, intall it to add also the prefixes from the permission handler");
             vaultEnabled = false;
+        }else{
+            Bukkit.getConsoleSender().sendMessage("Vault konnte nicht geladen werden.");
         }
     }
 

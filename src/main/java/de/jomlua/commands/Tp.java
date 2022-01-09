@@ -59,7 +59,7 @@ public class Tp implements CommandExecutor {
 
 
                 player.teleport(location);
-                player.sendMessage(ChatOutput.PREFIX.getText()+ "§aDu hast dich zu §cX: " + Double.parseDouble(args[0]) + " Y: " + Double.parseDouble(args[3]) + " Z: " + Double.parseDouble(args[2]) + "§a teleportiert.");
+                player.sendMessage(ChatOutput.PREFIX.getText()+ "§aDu hast dich zu §cX: " + Double.parseDouble(args[0]) + " Y: " + Double.parseDouble(args[1]) + " Z: " + Double.parseDouble(args[2]) + "§a teleportiert.");
 
                 return true;
             }else{

@@ -19,6 +19,7 @@ public class getListener {
         pm.registerEvents(new QuitListener(), r);
         pm.registerEvents(new JoinListener(), r);
         pm.registerEvents(new TeleportEvent(),r);
+        pm.registerEvents(new CommandEvent(),r);
         //pm.registerEvents(new PermissionPicker(),r);
     }
 }

@@ -65,7 +65,7 @@ public class getCommands {
         cmd("createkit", new Kits());
         cmd("kit", new Kits());
         cmd("kits", new Kits());
-        CoreCommand.RegisterCommands(core.getPlugin(), new test(), new rules(), new Back());
+        CoreCommand.RegisterCommands(core.getPlugin(), new test(), new rules(), new Back(), new Plugins(), new Vanish());
 
         //set Tabcompletion
         core.plugin.getCommand("warp").setTabCompleter(new Warp());

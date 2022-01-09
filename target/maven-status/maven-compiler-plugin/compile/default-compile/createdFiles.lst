@@ -22,6 +22,7 @@ de\jomlua\listener\TeleportEvent.class
 de\jomlua\commands\Kits.class
 de\jomlua\commands\StaffCommands\GetHomes.class
 de\jomlua\listener\QuitListener.class
+de\jomlua\commands\Plugins.class
 de\jomlua\utils\config\boradcastConfig.class
 de\jomlua\utils\modules\Chatinterfaces.class
 de\jomlua\utils\modules\KitModule.class

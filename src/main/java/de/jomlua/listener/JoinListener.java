@@ -4,6 +4,7 @@ import de.jomlua.core;
 import de.jomlua.utils.ChatOutput;
 import de.jomlua.utils.ChatUtils;
 import de.jomlua.utils.modules.Chatinterfaces;
+import de.jomlua.utils.modules.VanishManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -20,9 +21,14 @@ public class JoinListener implements Listener {
     @EventHandler
     public void OnJoin(PlayerJoinEvent e) throws IOException {
         Player player = e.getPlayer();
+        VanishManager vanishManager = core.getPlugin().getvManager();
         e.setJoinMessage(ChatUtils.Color("&8[&a+&8] " + player.getDisplayName()));
         SaveJoindata(player);
 
+        vanishManager.hiddePlayer(player);
+        if (vanishManager.isVanish(player)){
+            player.sendMessage(ChatOutput.PREFIX.getText() + "Du bist noch unsichtbar.");
+        }
         if (core.getPlugin().getConfig().getBoolean("enabled-motd")){
             for (int i = 0; i < core.plugin.getConfig().getList("motd-msg").size(); i++){
                 String msg = core.getPlugin().getConfig().getList("motd-msg").get(i).toString();

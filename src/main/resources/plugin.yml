@@ -76,4 +76,9 @@ commands:
     description: Hole dir ein Kit
   kits:
     description: Listet alle kits auf
+  plugins:
+    description: Verstecke die pluginliste
+    aliases: [pl]
+  vanish:
+    description: Stellt ein spieler unsichtbar.
 
