@@ -1,4 +1,45 @@
-C:\Users\akato\Desktop\Block meter\Core-1.12.2\src\main\java\de\jomlua\core.java
-C:\Users\akato\Desktop\Block meter\Core-1.12.2\src\main\java\de\jomlua\utils\ChatOutput.java
-C:\Users\akato\Desktop\Block meter\Core-1.12.2\src\main\java\de\jomlua\utils\config\ChatOutputConfig.java
-C:\Users\akato\Desktop\Block meter\Core-1.12.2\src\main\java\de\jomlua\utils\config\Config.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\heal.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\config\Config.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\Warp.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\CoreCommand.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\modules\TeleportTyp.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\config\boradcastConfig.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\TpaCommand\Tpa.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\home.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\StaffCommands\Gamemode.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\enabledPlugin.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\modules\RandomTeleport.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\randomTeleport.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\SetSpawn.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\ChatOutput.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\CommandHomeUtil.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\config\ChatOutputConfig.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\SetHome.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\discord.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\listener\ChatListener.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\listener\JoinListener.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\StaffCommands\GetHomes.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\Kits.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\listener\QuitListener.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\StaffCommands\Fly.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\PrivatPermissions.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\TpaCommand\Tpadeny.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\getListener.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\rules.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\modules\Base64.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\Spawn.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\StaffCommands\WorldManager.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\listener\TeleportEvent.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\core.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\getCommands.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\config\CoreConfig.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\modules\KitModule.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\ChatUtils.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\modules\Chatinterfaces.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\TpaCommand\Tpaacept.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\utils\modules\Teleport.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\Back.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\listener\DeathListener.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\test.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\Tp.java
+C:\Users\akato\Documents\GitHub\jomlua-core-1.12\src\main\java\de\jomlua\commands\TpaCommand\Tpahere.java
