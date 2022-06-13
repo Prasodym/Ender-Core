@@ -27,7 +27,7 @@ public class WorldManager implements CommandExecutor, TabCompleter {
         this.plugin = plugin;
     }
 
-    public static File file = new File("plugins/jomlua-core", "worlds.yml");
+    public static File file = new File(core.plugin.getDataFolder(), "worlds.yml");
     public static YamlConfiguration cfg =YamlConfiguration.loadConfiguration(file);
 
     public static List<String> MAPS = cfg.getStringList("Worlds");

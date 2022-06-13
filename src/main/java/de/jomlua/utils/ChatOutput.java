@@ -11,7 +11,7 @@ public enum ChatOutput {
     WARNING("Warning", "&e[&e&lWARNING&e] &c"),
     ECO_PREFIX("EcoPrefix", "&8[&3E&aco&8] "),
     NO_PERMISSIONS("error.permission.denid", "&cYou have no permission to do this."),
-    LOADING_PLUGIN("loadplugin","&aLoading all dependecis"),
+    LOADING_PLUGIN("loadplugin","&aLoading all dependecis."),
     NO_PLAYER("error.noplayer.exist", "&cDieser Spieler existiert nicht."),
     HEAL_TO("player.healto","&aDu wuredes von &c%target% &ageheilt."),
     HEAL_FOR_ME("msg.heal.forme", "§aDu hast §3§l%target%§a geheilt."),

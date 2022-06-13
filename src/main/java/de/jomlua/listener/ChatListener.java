@@ -20,14 +20,15 @@ public class ChatListener implements Listener {
         String prefix = chat.getGroupPrefix(getworld,group);
         String world = getworld.getName();
 
-        if (player.hasPermission(PrivatPermissions.CHATLITENER.getText()) || player.isOp()){
+
+        if (player.hasPermission(PrivatPermissions.CHATLITENER.getText())){
+            e.setFormat(ChatUtils.setHexText(prefix + player.getDisplayName()+":&a ") + ChatUtils.setHexText(e.getMessage()));
+        } else {
             if (!(player.isOp())){
-                e.setFormat(ChatUtils.Color(prefix + player.getDisplayName() + ": &b" + e.getMessage()));
+                e.setFormat(ChatUtils.setHexText( prefix + player.getDisplayName()+":&a ") + e.getMessage());
             }else{
-                e.setFormat(ChatUtils.Color("&7[&4Operator&7]" + prefix + player.getDisplayName() + ": &b" + e.getMessage()));
+                e.setFormat(ChatUtils.setHexText("&7[&4Operator&7]" + prefix + player.getDisplayName()+":&a ") + e.getMessage());
             }
-        }else{
-            e.setFormat(ChatUtils.Color(prefix + player.getDisplayName() + ": &a") + e.getMessage());
         }
 
     }

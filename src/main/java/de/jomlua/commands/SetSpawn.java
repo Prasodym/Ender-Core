@@ -1,5 +1,6 @@
 package de.jomlua.commands;
 
+import de.jomlua.core;
 import de.jomlua.utils.ChatOutput;
 import de.jomlua.utils.PrivatPermissions;
 import de.jomlua.utils.config.CoreConfig;
@@ -40,7 +41,7 @@ public class SetSpawn implements CommandExecutor {
             Bukkit.getLogger().log(Level.WARNING, "There is an error reading the spawn location, check the configuration");
         }
 
-        System.out.println(ChatOutput.PREFIX.getText() + "Es wurde von" + player.getDisplayName() + "ein neuer TP Punkt gesetzt.");
+        Bukkit.getConsoleSender().sendMessage(ChatOutput.PREFIX.getText() + "Es wurde von " + core.chat.getPlayerPrefix(player) +  player.getDisplayName() + " ein neuer Spawn Punkt gesetzt.");
         player.sendMessage(ChatOutput.PREFIX.getText() + "§aDu hast in §3§l" + player.getWorld().getName() + "§a den Spawn gesetzt.");
         return true;
     }

@@ -18,7 +18,7 @@ public class RandomTeleport {
     public RandomTeleport(core plugin) {
         this.plugin = plugin;
     }
-    private static File file = new File("plugins/jomlua-core", "config.yml");
+    private static File file = new File(core.plugin.getDataFolder(), "config.yml");
     private static YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
 
     public static HashSet<Material> invalidBlocks = new HashSet<>();

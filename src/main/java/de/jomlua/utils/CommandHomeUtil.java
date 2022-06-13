@@ -1,5 +1,6 @@
 package de.jomlua.utils;
 
+import de.jomlua.core;
 import de.jomlua.utils.config.CoreConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -12,7 +13,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.logging.Level;
 
 public class CommandHomeUtil {
 
@@ -35,7 +35,7 @@ public class CommandHomeUtil {
         CoreConfig.DeletePlayerData(player,"homes." + home + ".z");
         CoreConfig.DeletePlayerData(player,"homes." + home + ".yaw");
         CoreConfig.DeletePlayerData(player,"homes." + home + ".pitch");
-        Bukkit.getLogger().log(Level.INFO, ChatOutput.PREFIX.getText() + "Player §c" + player.getDisplayName() + "§f deletet home: §c" + home);
+        Bukkit.getConsoleSender().sendMessage(ChatOutput.PREFIX.getText() + "Player §c" + player.getDisplayName() + "§f deletet home: §c" + home);
     }
     public static void CreateHome(Player player, Location location, String home) throws IOException {
         String world = location.getWorld().getName();
@@ -52,11 +52,11 @@ public class CommandHomeUtil {
         CoreConfig.AddPlayerData(player,"homes." + home + ".yaw", yaw);
         CoreConfig.AddPlayerData(player, "homes." + home + ".pitch", pitch);
 
-        Bukkit.getLogger().log(Level.INFO, ChatOutput.PREFIX.getText() + "Player §c" + player.getDisplayName() + "§f added home: §c" + home);
+        Bukkit.getConsoleSender().sendMessage( ChatOutput.PREFIX.getText() + "Player §c" + player.getDisplayName() + "§f added home: §c" + home);
     }
 
     public static Set<String> getHomePoints(Player player){
-        File file = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
+        File file = new File(core.plugin.getDataFolder() + "/users", player.getUniqueId() + ".yml");
         YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
         if (yml.isSet("homes.")){
 
@@ -67,7 +67,7 @@ public class CommandHomeUtil {
     }
 
     public static void TeleportTargetHome(Player player, String home, OfflinePlayer target){
-        File file = new File("plugins/jomlua-core/users", target.getUniqueId() + ".yml");
+        File file = new File(core.plugin.getDataFolder() + "/users", target.getUniqueId() + ".yml");
         YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
 
         World world = Bukkit.getWorld(yml.getString( "homes." + home + ".world"));

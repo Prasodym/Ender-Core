@@ -1,6 +1,7 @@
 package de.jomlua.utils.modules;
 
 
+import de.jomlua.core;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -16,7 +17,7 @@ import java.util.List;
 public class WorldManagerModule {
 
     public static List<String> getExistWorld(){
-        File file = new File("plugins/jomlua-core/worlds.yml");
+        File file = new File(core.plugin.getDataFolder(),"worlds.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
         List<String> warpse = new ArrayList<>();
 
@@ -32,7 +33,7 @@ public class WorldManagerModule {
     }
 
     public static boolean getBooleanWorld(String path){
-        File file = new File("plugins/jomlua-core/worlds.yml");
+        File file = new File(core.plugin.getDataFolder(),"worlds.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
         return cfg.isList("Worlds." + path);
     }

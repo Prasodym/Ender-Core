@@ -6,7 +6,7 @@
 
     <groupId>de.jomlua.core</groupId>
     <artifactId>Ender-core</artifactId>
-    <version>0.3.9</version>
+    <version>0.4.0</version>
     <packaging>jar</packaging>
 
     <name>Ender-Core</name>
@@ -77,13 +77,8 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.3-R0.1-SNAPSHOT</version>
+            <version>1.18.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
-            <version>LATEST</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>

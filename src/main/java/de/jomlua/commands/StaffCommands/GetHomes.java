@@ -1,5 +1,6 @@
 package de.jomlua.commands.StaffCommands;
 
+import de.jomlua.core;
 import de.jomlua.utils.ChatOutput;
 import de.jomlua.utils.ChatUtils;
 import de.jomlua.utils.CommandHomeUtil;
@@ -34,7 +35,7 @@ public class GetHomes implements CommandExecutor {
             if (args.length == 1){
                 OfflinePlayer target = Bukkit.getOfflinePlayer(args[0]);
                 System.out.println(target.getUniqueId().toString());
-                File fIle = new File("plugins/jomlua-core/users", target.getUniqueId() + ".yml");
+                File fIle = new File(core.plugin.getDataFolder() + "/users", target.getUniqueId() + ".yml");
                 YamlConfiguration cnf = YamlConfiguration.loadConfiguration(fIle);
                 if (fIle.exists()){
                     Chatinterfaces.ListetHomeTargetInterface(player, target);

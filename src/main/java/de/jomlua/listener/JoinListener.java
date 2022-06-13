@@ -40,7 +40,7 @@ public class JoinListener implements Listener {
     }
 
     private static void SaveJoindata(Player player) throws IOException {
-        File file = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
+        File file = new File(core.plugin.getDataFolder() + "/users", player.getUniqueId() + ".yml");
         YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
         String location = player.getLocation().toString();
         Timestamp time = new Timestamp(System.currentTimeMillis());
@@ -51,9 +51,9 @@ public class JoinListener implements Listener {
             yml.set("userdata.data", player.getLocale());
             yml.set("userdata.rules", false);
             yml.save(file);
-            Bukkit.getLogger().log(Level.INFO, ChatOutput.PREFIX.getText() + "Added " + player.getDisplayName() + " userdata in users/" + player.getUniqueId() + ".yml");
+            Bukkit.getConsoleSender().sendMessage(ChatOutput.PREFIXC.getText() + "Added " + player.getDisplayName() + " userdata in users/" + player.getUniqueId() + ".yml");
         } else{
-            Bukkit.getLogger().log(Level.INFO, ChatOutput.PREFIX.getText() + "Load " + player.getDisplayName() + " userdata in users/" + player.getUniqueId() + ".yml");
+            Bukkit.getConsoleSender().sendMessage(ChatOutput.PREFIXC.getText() + "Load " + player.getDisplayName() + " userdata in users/" + player.getUniqueId() + ".yml");
 
         }
 

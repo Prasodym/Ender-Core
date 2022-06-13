@@ -2,6 +2,8 @@ package de.jomlua.utils;
 
 import de.jomlua.core;
 import de.jomlua.listener.*;
+import de.jomlua.listener.Signs.ColoredSigns;
+import de.jomlua.listener.Signs.WarpSign;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 
@@ -20,6 +22,8 @@ public class getListener {
         pm.registerEvents(new JoinListener(), r);
         pm.registerEvents(new TeleportEvent(),r);
         pm.registerEvents(new CommandEvent(),r);
+        pm.registerEvents(new ColoredSigns(),r);
+        pm.registerEvents(new WarpSign(),r);
         //pm.registerEvents(new PermissionPicker(),r);
     }
 }

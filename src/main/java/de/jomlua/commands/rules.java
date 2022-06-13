@@ -36,7 +36,7 @@ public class rules extends CoreCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         Player player  = (Player) sender;
-        File file = new File("plugins/jomlua-core/rules.yml");
+        File file = new File(core.plugin.getDataFolder(),"rules.yml");
         YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
 
         if (args.length == 0){

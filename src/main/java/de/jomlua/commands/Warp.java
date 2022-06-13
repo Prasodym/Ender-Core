@@ -1,5 +1,6 @@
 package de.jomlua.commands;
 
+import de.jomlua.core;
 import de.jomlua.utils.ChatOutput;
 import de.jomlua.utils.ChatUtils;
 import de.jomlua.utils.PrivatPermissions;
@@ -101,46 +102,46 @@ public class Warp implements CommandExecutor, TabCompleter {
 
         }
         if (command.getName().equalsIgnoreCase("warps")){
-            File fIle = new File("plugins/jomlua-core/warps.yml");
+            File fIle = new File(core.plugin.getDataFolder(),"warps.yml");
             YamlConfiguration cnf = YamlConfiguration.loadConfiguration(fIle);
             if (args.length == 0){
                 int i = 1;
 
-                Iterator<String> WhileHome = cnf.getConfigurationSection("Warps.").getKeys(true).iterator();
-
-                while (WhileHome.hasNext()){
-                    String list = (String) WhileHome.next();
-                    if (!list.contains(".")){
-                        TextComponent liste = null;
-                        TextComponent delete;
-                        TextComponent edit;
-                        TextComponent teleport;
-                        /**
-                         * TODO var edit später einbinden, konzept hierfür muss noch überlegt werden.
-                         */
-                        //edit = ChatUtils.TcCommand("&7[&2Ändern&7] ", "/setwarp " + list, "&3Änder die position von " + list);
-
-                        if (player.hasPermission(PrivatPermissions.DELWARP.getText())){
 
 
-                            teleport = ChatUtils.TcCommand("&7[&3Teleport&7] ", "/warp " + list, "&3Teleportiere zu " + list);
-                            delete = ChatUtils.TcCommand("&7[&cDelete&7]", "/delwarp " + list, "&cLösche diesen Warp.");
-                            liste = ChatUtils.TcText("&e" + i++ +". §7" + list + " &e-> ");
-                            liste.addExtra(teleport);
-                            teleport.addExtra(delete);
-                        } else{
-                            teleport = ChatUtils.TcCommand("&7[&3Teleport&7] ", "/warp " + list, "&3Teleportiere zu " + list);
-                            liste = ChatUtils.TcText("&e" + i++ +". §7" + list + " &e-> ");
-                            liste.addExtra(teleport);
+                try{
+                    Iterator<String> WhileHome = cnf.getConfigurationSection("Warps.").getKeys(true).iterator();
+                    while (WhileHome.hasNext()){
+                        String list = (String) WhileHome.next();
+                        if (!list.contains(".")){
+                            TextComponent liste = null;
+                            TextComponent delete;
+                            TextComponent edit;
+                            TextComponent teleport;
+                            /**
+                             * TODO var edit später einbinden, konzept hierfür muss noch überlegt werden.
+                             */
+                            //edit = ChatUtils.TcCommand("&7[&2Ändern&7] ", "/setwarp " + list, "&3Änder die position von " + list);
 
+                            if (player.hasPermission(PrivatPermissions.DELWARP.getText())){
+
+
+                                teleport = ChatUtils.TcCommand("&7[&3Teleport&7] ", "/warp " + list, "&3Teleportiere zu " + list);
+                                delete = ChatUtils.TcCommand("&7[&cDelete&7]", "/delwarp " + list, "&cLösche diesen Warp.");
+                                liste = ChatUtils.TcText("&e" + i++ +". §7" + list + " &e-> ");
+                                liste.addExtra(teleport);
+                                teleport.addExtra(delete);
+                            } else{
+                                teleport = ChatUtils.TcCommand("&7[&3Teleport&7] ", "/warp " + list, "&3Teleportiere zu " + list);
+                                liste = ChatUtils.TcText("&e" + i++ +". §7" + list + " &e-> ");
+                                liste.addExtra(teleport);
+
+                            }
+                            player.spigot().sendMessage(liste);
                         }
-
-
-
-
-
-                        player.spigot().sendMessage(liste);
                     }
+                }catch (NullPointerException e){
+                    player.sendMessage("Es sind noch keine Warps vorhanden.");
                 }
 
 

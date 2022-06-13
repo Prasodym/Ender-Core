@@ -20,7 +20,7 @@ public class KitModule {
     }
 
     public static void getInv(Player player, String name) throws IOException, InvalidConfigurationException {
-        File file = new File("plugins/JomluaCore", "kits.yml");
+        File file = new File(core.plugin.getDataFolder(), "kits.yml");
 
         FileConfiguration config = YamlConfiguration.loadConfiguration(file);
 
@@ -100,7 +100,7 @@ public class KitModule {
     }
 
     public static boolean getAlradyKitUse(Player player, String kitname){
-        File file = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
+        File file = new File(core.plugin.getDataFolder(), player.getUniqueId() + ".yml");
         YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
 
         if (config.getBoolean("kits."+ kitname)){
@@ -111,7 +111,7 @@ public class KitModule {
     }
 
     public static void setAlradyKitUse(Player player, String kitname) throws IOException {
-        File file = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
+        File file = new File(core.plugin.getDataFolder(), player.getUniqueId() + ".yml");
         YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
         config.set("kits." + kitname , true);
         config.save(file);

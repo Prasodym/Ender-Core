@@ -8,23 +8,23 @@ import de.jomlua.utils.getListener;
 import de.jomlua.utils.modules.VanishManager;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Color;
 import org.bukkit.WorldCreator;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
 
 
 public final class core extends JavaPlugin {
-    public static File file = new File("plugins/jomlua-core", "worlds.yml");
+    public static File file = new File("plugins/Ender-Core", "worlds.yml");
     public static YamlConfiguration worldlist =YamlConfiguration.loadConfiguration(file);
 
     public static core plugin;
@@ -36,8 +36,8 @@ public final class core extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        this.getLogger().log(Level.SEVERE, ChatOutput.LOADING_PLUGIN.getText());
-        System.out.println(ChatOutput.LOADING_PLUGIN.getText());
+        this.getLogger().log(Level.INFO, ChatColor.YELLOW + ChatOutput.LOADING_PLUGIN.getText());
+        //System.out.println(ChatOutput.LOADING_PLUGIN.getText());
 
         loadingConfigs();
 
@@ -59,7 +59,8 @@ public final class core extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        System.out.println("§eBis bald!");
+        Bukkit.getConsoleSender().sendMessage(Color.fromRGB(9,73,121).toString() + "Bis Bald");
+
     }
 
     public static core getPlugin(){
@@ -93,7 +94,7 @@ public final class core extends JavaPlugin {
 
 
     public FileConfiguration CoreConfig(){
-        File file = new File("plugins/Core", "config.yml");
+        File file = new File("plugins/Ender-Core", "config.yml");
         return YamlConfiguration.loadConfiguration(file);
     }
 

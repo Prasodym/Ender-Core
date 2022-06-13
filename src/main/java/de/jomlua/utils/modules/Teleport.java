@@ -20,7 +20,7 @@ public class Teleport {
     public Teleport() {
     }
 
-    private static File Cwarp = new File("plugins/jomlua-core/warps.yml");
+    private static File Cwarp = new File(core.plugin.getDataFolder(),"warps.yml");
 
 
     public static Location TeleportConfig(String path){
@@ -37,7 +37,7 @@ public class Teleport {
         return location;
     }
     public static Location DefaultHome(Player player){
-        File file = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
+        File file = new File(core.plugin.getDataFolder(), player.getUniqueId() + ".yml");
         YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
 
         World world = Bukkit.getWorld(config.getString("homes.home.world"))   ;
@@ -78,7 +78,7 @@ public class Teleport {
         conf.set("Warps." + warpname + ".pitch", pitch);
         conf.save(Cwarp);
         player.sendMessage(ChatOutput.PREFIX.getText() + "§a Warp §c" + warpname + " §awurde gesetzt.");
-        Bukkit.getLogger().log(Level.INFO, ChatOutput.PREFIX.getText() + "Es wurde von§c" + player.getDisplayName() + "§fder neuer Warp §c" + warpname + " §fgesetzt.");
+        Bukkit.getConsoleSender().sendMessage( ChatOutput.PREFIX.getText() + "Es wurde von§c" + player.getDisplayName() + "§fder neuer Warp §c" + warpname + " §fgesetzt.");
     }
     public static void DeleteWarp(Player player, String warpname) throws IOException {
         YamlConfiguration conf = YamlConfiguration.loadConfiguration(Cwarp);
@@ -91,11 +91,11 @@ public class Teleport {
         conf.set("Warps." + warpname + ".pitch", null);
         conf.save(Cwarp);
         player.sendMessage(ChatOutput.PREFIX.getText() + "§a Warp §c" + warpname + " §awurde gelöscht.");
-        Bukkit.getLogger().log(Level.INFO, ChatOutput.PREFIX.getText() + "Es wurde von§c" + player.getDisplayName() + "§fder Warp §c" + warpname + " §fentfernt.");
+        Bukkit.getConsoleSender().sendMessage( ChatOutput.PREFIX.getText() + "Es wurde von§c" + player.getDisplayName() + "§fder Warp §c" + warpname + " §fentfernt.");
     }
 
     public static void DeleteHome(Player player, String warpname) throws IOException {
-        File file = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
+        File file = new File(core.plugin.getDataFolder(), player.getUniqueId() + ".yml");
         YamlConfiguration conf = YamlConfiguration.loadConfiguration(file);
         if (conf.isSet("homes." + warpname)){
             conf.set("homes." + warpname, null);
@@ -115,18 +115,22 @@ public class Teleport {
     }
 
     public static List<String> getWarp(){
-        File file = new File("plugins/jomlua-core/warps.yml");
+        File file = new File(core.plugin.getDataFolder(),"warps.yml");
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
         List<String> warpse = new ArrayList<>();
 
         //Iterator<String> WhileHome = cnf.getConfigurationSection("Warps.").getKeys(true).iterator();
-        Iterator var10 = cfg.getConfigurationSection("Warps.").getKeys(false).iterator();
-        while (var10.hasNext()) {
-            String arg = (String) var10.next();
-            if (!arg.contains(".")) {
-                warpse.add(arg);
-            }
-        }
+       try{
+           Iterator var10 = cfg.getConfigurationSection("Warps.").getKeys(false).iterator();
+           while (var10.hasNext()) {
+               String arg = (String) var10.next();
+               if (!arg.contains(".")) {
+                   warpse.add(arg);
+               }
+           }
+       }catch (NullPointerException e){
+
+       }
         return warpse;
     }
     public static boolean getBooleanWarp(String path){

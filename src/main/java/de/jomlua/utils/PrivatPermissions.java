@@ -20,7 +20,13 @@ public enum PrivatPermissions {
     WORLDMANAGER("jomlua.admin.world"),
     ADMIN("jomlua.admin"),
     VANISH("jomlua.vanish"),
-    GAMEMODE("jomlua.admin.gamemode");
+    GAMEMODE("jomlua.admin.gamemode"),
+    SPEED("jomlua.admin.speed"),
+    LOAD("jomlua.plugin.load"),
+    ITEMUNNAME("jomlua.admin.itemunname"),
+    COLOREDSIGNS("jomlua.sign.color"),
+    WARPSIGNUSE("jomlua.sign.warpuse"),
+    WARPSIGNADD("jomlua.sign.warpadd");
 
     private String text;
 

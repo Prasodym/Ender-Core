@@ -2,10 +2,7 @@ package de.jomlua.utils;
 
 
 import de.jomlua.commands.*;
-import de.jomlua.commands.StaffCommands.Fly;
-import de.jomlua.commands.StaffCommands.Gamemode;
-import de.jomlua.commands.StaffCommands.GetHomes;
-import de.jomlua.commands.StaffCommands.WorldManager;
+import de.jomlua.commands.StaffCommands.*;
 import de.jomlua.commands.TpaCommand.Tpa;
 import de.jomlua.commands.TpaCommand.Tpaacept;
 import de.jomlua.commands.TpaCommand.Tpadeny;
@@ -28,7 +25,7 @@ public class getCommands {
     }
 
     public static void LoadConfigs(){
-        message = new ChatOutputConfig(new File("plugins/jomlua-core", "Chat.yml"));
+        message = new ChatOutputConfig(new File(core.plugin.getDataFolder(), "Chat.yml"));
     }
 
     private static void cmd(String command, CommandExecutor executor){
@@ -36,6 +33,8 @@ public class getCommands {
     }
 
     public static void ListCommands(){
+        cmd("iname", new UnNameItem());
+        cmd("speed", new Speed());
         cmd("heal", new heal());
         cmd("home", new home());
         cmd("sethome", new SetHome());
@@ -55,7 +54,7 @@ public class getCommands {
         cmd("gethome", new GetHomes());
         cmd("atphome", new GetHomes());
         cmd("worldmanager", new WorldManager(core.getPlugin()));
-        
+        cmd("load", new ReloadServer());
         cmd("fly", new Fly());
         cmd("gm", new Gamemode());
         cmd("tpa", new Tpa());

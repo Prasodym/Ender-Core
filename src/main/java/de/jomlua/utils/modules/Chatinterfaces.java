@@ -1,5 +1,6 @@
 package de.jomlua.utils.modules;
 
+import de.jomlua.core;
 import de.jomlua.utils.ChatOutput;
 import de.jomlua.utils.ChatUtils;
 import de.jomlua.utils.CommandHomeUtil;
@@ -20,7 +21,7 @@ public class Chatinterfaces {
     }
     public static void ListetHomeInterface(Player player){
         String prefix = ChatOutput.PREFIX.getText();
-        File fIle = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
+        File fIle = new File(core.plugin.getDataFolder() + "/users", player.getUniqueId() + ".yml");
         YamlConfiguration cnf = YamlConfiguration.loadConfiguration(fIle);
         int number = CoreConfig.getintConfig("homecount");
         int i = 1;
@@ -35,29 +36,33 @@ public class Chatinterfaces {
         }
 
 
-        Iterator<String> WhileHome = cnf.getConfigurationSection("homes.").getKeys(true).iterator();
+        try{
+            Iterator<String> WhileHome = cnf.getConfigurationSection("homes.").getKeys(true).iterator();
 
-        while (WhileHome.hasNext()){
-            String list = (String) WhileHome.next();
-            if (!list.contains(".")){
-                TextComponent liste;
-                TextComponent delete;
-                TextComponent teleport;
+            while (WhileHome.hasNext()){
+                String list = (String) WhileHome.next();
+                if (!list.contains(".")){
+                    TextComponent liste;
+                    TextComponent delete;
+                    TextComponent teleport;
 
-                teleport = ChatUtils.TcCommand("&7[&3TP&7] ", "/home " + list, "&3Teleportiere zum " + list);
-                delete = ChatUtils.TcCommand("&7[&cDelete&7]", "/delhome " + list, "&cLösche diesen Home.");
-                liste = ChatUtils.TcText("&e" + i++ +". §7" + list + " &e-> ");
-                liste.addExtra(teleport);
-                teleport.addExtra(delete);
+                    teleport = ChatUtils.TcCommand("&7[&3TP&7] ", "/home " + list, "&3Teleportiere zum " + list);
+                    delete = ChatUtils.TcCommand("&7[&cDelete&7]", "/delhome " + list, "&cLösche diesen Home.");
+                    liste = ChatUtils.TcText("&e" + i++ +". §7" + list + " &e-> ");
+                    liste.addExtra(teleport);
+                    teleport.addExtra(delete);
 
-                player.spigot().sendMessage(liste);
+                    player.spigot().sendMessage(liste);
+                }
             }
+        }catch (NullPointerException e){
+            player.sendMessage(ChatOutput.PREFIX.getText() + "Es wurden noch keine Homes gesetzt!.");
         }
     }
 
     public static void ListetHomeTargetInterface(Player player, OfflinePlayer target){
         String prefix = ChatOutput.PREFIX.getText();
-        File fIle = new File("plugins/jomlua-core/users", target.getUniqueId() + ".yml");
+        File fIle = new File(core.plugin.getDataFolder() + "/users", target.getUniqueId() + ".yml");
         YamlConfiguration cnf = YamlConfiguration.loadConfiguration(fIle);
         int number = CoreConfig.getintConfig("homecount");
         int i = 1;
@@ -71,7 +76,7 @@ public class Chatinterfaces {
             }
         }
 
-        if (cnf.isSet("homes")){
+        try {
             Iterator<String> WhileHome = cnf.getConfigurationSection("homes.").getKeys(true).iterator();
 
             while (WhileHome.hasNext()){
@@ -90,7 +95,7 @@ public class Chatinterfaces {
                     player.spigot().sendMessage(liste);
                 }
             }
-        }else{
+        }catch (NullPointerException e){
             player.sendMessage(ChatOutput.PREFIX.getText() + "Es wurden noch keine Homes gesetzt!.");
         }
 

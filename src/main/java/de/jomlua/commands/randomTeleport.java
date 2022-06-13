@@ -55,7 +55,7 @@ public class randomTeleport implements CommandExecutor {
     }
 
     private void setBorder(String world, String size, Player player) {
-        File file = new File("plugins/jomlua-core", "config.yml");
+        File file = new File(core.plugin.getDataFolder(), "config.yml");
         YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
         Location spawn = player.getLocation();
 

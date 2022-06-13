@@ -1,7 +1,8 @@
-name: jomlua-core
-version: 0.3.9
+name: Ender-Core
+version: 0.4.0
 main: de.jomlua.core
 prefix: Jomlua
+api-version: 1.16
 authors: [ Prasodym ]
 website: https://jomlua.de
 
@@ -46,6 +47,8 @@ commands:
     description: Lege eine worldborder Fest.
   test:
     description: Debug
+  speed:
+    description: Erhöhe oder Verringer seine Flug-/bewegungsgeschwindigkeit.
   gethome:
     description: Listet alle homes eines Spielers auf.
   atphome:
@@ -81,4 +84,8 @@ commands:
     aliases: [pl]
   vanish:
     description: Stellt ein spieler unsichtbar.
+  iname:
+    description: Items in der Hand unbenennen.
+  load:
+    description: Lade den Server neu.
 

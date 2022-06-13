@@ -1,5 +1,6 @@
 package de.jomlua.listener;
 
+import de.jomlua.core;
 import de.jomlua.utils.ChatOutput;
 import de.jomlua.utils.ChatUtils;
 import org.bukkit.Bukkit;
@@ -24,7 +25,7 @@ public class QuitListener implements Listener {
 
     }
     private static void SaveQuitPosition(Player player) throws IOException {
-        File file = new File("plugins/jomlua-core/users", player.getUniqueId() + ".yml");
+        File file = new File(core.plugin.getDataFolder() + "/users", player.getUniqueId() + ".yml");
         YamlConfiguration yml = YamlConfiguration.loadConfiguration(file);
         String location = player.getLocation().toString();
         Timestamp time = new Timestamp(System.currentTimeMillis());
@@ -42,7 +43,7 @@ public class QuitListener implements Listener {
         yml.set("lastplayed.location.pitch", pitch);
         yml.set("lastplayed.time", time.toString());
         yml.save(file);
-        Bukkit.getLogger().log(Level.INFO, ChatOutput.PREFIX.getText() + "Save " + player.getDisplayName() + " userdata in users/" + player.getUniqueId() + ".yml");
+        Bukkit.getConsoleSender().sendMessage( ChatOutput.PREFIX.getText() + "Save " + player.getDisplayName() + " userdata in users/" + player.getUniqueId() + ".yml");
 
     }
 }
