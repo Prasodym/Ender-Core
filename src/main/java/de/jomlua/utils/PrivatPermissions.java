@@ -26,6 +26,7 @@ public enum PrivatPermissions {
     ITEMUNNAME("jomlua.admin.itemunname"),
     COLOREDSIGNS("jomlua.sign.color"),
     WARPSIGNUSE("jomlua.sign.warpuse"),
+    MSG("jomlua.msg"),
     WARPSIGNADD("jomlua.sign.warpadd");
 
     private String text;

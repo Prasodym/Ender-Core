@@ -13,6 +13,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -118,6 +119,15 @@ public class ChatUtils {
         im.setDisplayName(ChatUtils.setHexText(itemname));
         itemStack.setItemMeta(im);
         player.getInventory().setItem(EquipmentSlot.HAND,itemStack);
+    }
+    private static HashMap<Player, Player> reply = new HashMap<Player, Player>();
+    public static void setReply(Player player1, Player player2){
+        reply.put(player1, player2);
+        reply.put(player2, player1);
+    }
+
+    public static Player getReply(Player player1){
+        return reply.get(player1);
     }
 
 }

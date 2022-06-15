@@ -7,6 +7,12 @@ authors: [ Prasodym ]
 website: https://jomlua.de
 
 commands:
+  m:
+    description: Schreibe einen Spieler Privat.
+    aliases: [msg]
+  r:
+    description: Antworte auf die Private Nachricht
+    aliases: [re]
   heal:
     description: Dies heilt dich.
   home:

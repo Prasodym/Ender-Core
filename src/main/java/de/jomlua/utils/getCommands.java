@@ -2,6 +2,7 @@ package de.jomlua.utils;
 
 
 import de.jomlua.commands.*;
+import de.jomlua.commands.Chat.Reply;
 import de.jomlua.commands.StaffCommands.*;
 import de.jomlua.commands.TpaCommand.Tpa;
 import de.jomlua.commands.TpaCommand.Tpaacept;
@@ -33,6 +34,8 @@ public class getCommands {
     }
 
     public static void ListCommands(){
+        cmd("m", new Reply());
+        cmd("r", new Reply());
         cmd("iname", new UnNameItem());
         cmd("speed", new Speed());
         cmd("heal", new heal());
