@@ -36,7 +36,8 @@ public class getCommands {
     public static void ListCommands(){
         cmd("m", new Reply());
         cmd("r", new Reply());
-        cmd("iname", new UnNameItem());
+        cmd("rename", new UnNameItem());
+        cmd("head", new Head());
         cmd("speed", new Speed());
         cmd("heal", new heal());
         cmd("home", new home());
@@ -58,7 +59,8 @@ public class getCommands {
         cmd("atphome", new GetHomes());
         cmd("worldmanager", new WorldManager(core.getPlugin()));
         cmd("load", new ReloadServer());
-        cmd("fly", new Fly());
+        cmd("invsee", new Invsee())
+;        cmd("fly", new Fly());
         cmd("gm", new Gamemode());
         cmd("tpa", new Tpa());
         cmd("tpahere", new Tpahere());

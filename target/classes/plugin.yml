@@ -7,6 +7,12 @@ authors: [ Prasodym ]
 website: https://jomlua.de
 
 commands:
+  m:
+    description: Schreibe einen Spieler Privat.
+    aliases: [msg]
+  r:
+    description: Antworte auf die Private Nachricht
+    aliases: [re]
   heal:
     description: Dies heilt dich.
   home:
@@ -75,6 +81,8 @@ commands:
     description: Teleportiere dich zum letzten ort zurück
   createkit:
     description: Speicher ein kit mit dein Inventarcontent.
+  invsee:
+    description: Öffne das inventar vom anderen Spieler.
   kit:
     description: Hole dir ein Kit
   kits:
@@ -84,8 +92,10 @@ commands:
     aliases: [pl]
   vanish:
     description: Stellt ein spieler unsichtbar.
-  iname:
+  rename:
     description: Items in der Hand unbenennen.
+  head:
+    description: Hole dir einen Kopf vom anderen Spieler.
   load:
     description: Lade den Server neu.
 

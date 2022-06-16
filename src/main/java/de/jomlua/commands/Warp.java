@@ -83,16 +83,38 @@ public class Warp implements CommandExecutor, TabCompleter {
                 player.sendMessage(prefix + ChatOutput.NO_PERMISSIONS.getText());
                 return true;
             }
-            if (args.length == 1){
-                if (Teleport.getBooleanWarp(args[0])){
-                    try {
-                        Teleport.DeleteWarp(player, args[0]);
 
-                    } catch (IOException e) {
-                        e.printStackTrace();
+
+
+            if (args.length >= 1){
+
+                TextComponent delete;
+                TextComponent confirmation;
+                TextComponent channel;
+                TextComponent hub;
+                delete = ChatUtils.TcText("&cBist du dir sicher das du " + args[0] + " löschen möchtes?\n");
+                confirmation = ChatUtils.TcCommand("&7[&3Abbrechen&7] ", "/warps", "&3Ich möchte diesen vorhaben rückgängig machen.");
+                hub = ChatUtils.TcText(" &7oder ");
+                channel = ChatUtils.TcCommand("&7[&cLoschen&7]", "/delwarp confirm " + args[0], "&cIch möchte diesen Warp löschen.");
+
+                delete.addExtra(confirmation);
+                confirmation.addExtra(hub);
+                hub.addExtra(channel);
+                player.spigot().sendMessage(delete);
+
+
+                if (args[0].equalsIgnoreCase("confirm")){
+                    if (Teleport.getBooleanWarp(args[1])){
+                        try {
+                            Teleport.DeleteWarp(player, args[1]);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        ChatUtils.msg(player, ChatOutput.PREFIX.getText() + "&aDas Warp &c" + args[0] + " &awurde unwiderruflich gelöscht.");
+
+                    }else{
+                        ChatUtils.msg(player, "Dieser Warp (" + args[1] + ") existiert nicht");
                     }
-                }else{
-                    ChatUtils.msg(player, "Dieser Warp (" + args[0] + ") existiert nicht");
                 }
 
             }else{
@@ -101,13 +123,12 @@ public class Warp implements CommandExecutor, TabCompleter {
             }
 
         }
+
         if (command.getName().equalsIgnoreCase("warps")){
             File fIle = new File(core.plugin.getDataFolder(),"warps.yml");
             YamlConfiguration cnf = YamlConfiguration.loadConfiguration(fIle);
             if (args.length == 0){
                 int i = 1;
-
-
 
                 try{
                     Iterator<String> WhileHome = cnf.getConfigurationSection("Warps.").getKeys(true).iterator();
@@ -157,12 +178,22 @@ public class Warp implements CommandExecutor, TabCompleter {
     @Nullable
     @Override
     public List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
-        String input = args[0].toLowerCase();
+        //String input = String.valueOf(command.getName().equalsIgnoreCase("warp"));
 
         List<String> completion = null;
 
+        // Command /warp <LIST>
         for (String stra: Teleport.getWarp()){
-            if (stra.startsWith(input)){
+            if (command.getName().equalsIgnoreCase("warp")){
+                if (completion == null){
+                    completion = new ArrayList<>();
+                }
+                completion.add(stra);
+            }
+        }
+        // Command /delwarp <LIST>
+        for (String stra: Teleport.getWarp()){
+            if (command.getName().equalsIgnoreCase("delwarp")){
                 if (completion == null){
                     completion = new ArrayList<>();
                 }

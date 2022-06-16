@@ -2,6 +2,7 @@ package de.jomlua.utils.modules;
 
 import de.jomlua.core;
 import de.jomlua.utils.ChatOutput;
+import de.jomlua.utils.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -78,7 +79,8 @@ public class Teleport {
         conf.set("Warps." + warpname + ".pitch", pitch);
         conf.save(Cwarp);
         player.sendMessage(ChatOutput.PREFIX.getText() + "§a Warp §c" + warpname + " §awurde gesetzt.");
-        Bukkit.getConsoleSender().sendMessage( ChatOutput.PREFIX.getText() + "Es wurde von§c" + player.getDisplayName() + "§fder neuer Warp §c" + warpname + " §fgesetzt.");
+        ChatUtils.ConsolenMsg("&cEs wurde von&f " + player.getDisplayName() + " &cder neuer Warp §f" + warpname + " &cgesetzt.");
+
     }
     public static void DeleteWarp(Player player, String warpname) throws IOException {
         YamlConfiguration conf = YamlConfiguration.loadConfiguration(Cwarp);
@@ -91,7 +93,7 @@ public class Teleport {
         conf.set("Warps." + warpname + ".pitch", null);
         conf.save(Cwarp);
         player.sendMessage(ChatOutput.PREFIX.getText() + "§a Warp §c" + warpname + " §awurde gelöscht.");
-        Bukkit.getConsoleSender().sendMessage( ChatOutput.PREFIX.getText() + "Es wurde von§c" + player.getDisplayName() + "§fder Warp §c" + warpname + " §fentfernt.");
+        ChatUtils.ConsolenMsg("&cEs wurde das Warp &f" + warpname + " &cwurde gelöscht von &f" + player.getDisplayName() + "&c.");
     }
 
     public static void DeleteHome(Player player, String warpname) throws IOException {

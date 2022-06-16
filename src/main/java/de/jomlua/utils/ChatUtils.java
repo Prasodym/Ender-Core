@@ -23,6 +23,7 @@ public class ChatUtils {
     public ChatUtils(){
 
     }
+
     /**
      *
      * @param text Text or word which is displayed in the chat
@@ -89,7 +90,12 @@ public class ChatUtils {
         }
         return ChatColor.translateAlternateColorCodes('&', text);
     }
-
+    /**
+     *@param Text Text to console
+     **/
+    public static void ConsolenMsg(String Text){
+        Bukkit.getConsoleSender().sendMessage(Color(ChatOutput.PREFIXC.getText() + Text));
+    }
     public static void SendRgbMsg(Player player, String msg){
         player.sendMessage(setHexText(msg));
     }
@@ -101,25 +107,7 @@ public class ChatUtils {
         return "§a" + a + " §7von§c " + b;
     }
 
-    /**
-     * Ändert den Namen des Items
-     * @param player
-     * @param itemname
-     */
-    public static void RenameItemInHand(Player player, String itemname){
 
-        ItemStack itemStack = player.getInventory().getItemInMainHand();
-
-        if (itemStack == null || itemStack.getType().equals(Material.AIR)){
-            ChatUtils.SendRgbMsg(player, "&cDu hast kein Item in deiner Hand.");
-            return;
-        }
-
-        ItemMeta im = itemStack.getItemMeta();
-        im.setDisplayName(ChatUtils.setHexText(itemname));
-        itemStack.setItemMeta(im);
-        player.getInventory().setItem(EquipmentSlot.HAND,itemStack);
-    }
     private static HashMap<Player, Player> reply = new HashMap<Player, Player>();
     public static void setReply(Player player1, Player player2){
         reply.put(player1, player2);
@@ -128,6 +116,10 @@ public class ChatUtils {
 
     public static Player getReply(Player player1){
         return reply.get(player1);
+    }
+
+    public static void NoPerm(Player player){
+        ChatUtils.msg(player, ChatOutput.PREFIX.getText() + ChatOutput.NO_PERMISSIONS.getText());
     }
 
 }
