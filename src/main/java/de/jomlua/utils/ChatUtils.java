@@ -1,5 +1,7 @@
 package de.jomlua.utils;
 
+import de.jomlua.core;
+import de.jomlua.utils.modules.VanishManager;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -13,7 +15,9 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -71,12 +75,7 @@ public class ChatUtils {
     }
 
     public static String getPrefixName(Player player){
-        World getworld = player.getWorld();
-        String group = chat.getPrimaryGroup(player);
-        String suffix = chat.getPlayerSuffix(player);
-        String prefix = chat.getGroupPrefix(getworld,group);
-        String world = getworld.getName();
-        return prefix + player.getDisplayName();
+        return chat.getPlayerPrefix(player);
     }
 
     public static String setHexText(String text){
@@ -121,5 +120,6 @@ public class ChatUtils {
     public static void NoPerm(Player player){
         ChatUtils.msg(player, ChatOutput.PREFIX.getText() + ChatOutput.NO_PERMISSIONS.getText());
     }
+
 
 }
