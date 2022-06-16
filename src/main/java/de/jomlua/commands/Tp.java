@@ -1,6 +1,7 @@
 package de.jomlua.commands;
 
 import de.jomlua.utils.ChatOutput;
+import de.jomlua.utils.ChatUtils;
 import de.jomlua.utils.PrivatPermissions;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -71,7 +72,10 @@ public class Tp implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("tphere")){
             if (sender instanceof Player){
 
-                if(player.hasPermission("jomlua.tphere")){
+                if (!(player.hasPermission(PrivatPermissions.TPHERE.getText()))){
+                    ChatUtils.NoPerm(player);
+                    return true;
+                }
                     if (args.length == 1){
                         Player target = Bukkit.getPlayer(args[0]);
                         if (target != null){
@@ -93,9 +97,6 @@ public class Tp implements CommandExecutor {
                     }else{
                         player.sendMessage(ChatOutput.PREFIX.getText() + "§cDu musst ein Spieler mit angeben.");
                     }
-                }else{
-                    player.sendMessage(ChatOutput.PREFIX.getText() + ChatOutput.NO_PERMISSIONS.getText());
-                }
 
             }else{
                 sender.sendMessage(ChatOutput.PREFIX.getText() + ChatOutput.NO_PLAYER.getText());

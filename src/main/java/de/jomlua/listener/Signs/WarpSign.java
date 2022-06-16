@@ -5,6 +5,7 @@ import de.jomlua.utils.ChatOutput;
 import de.jomlua.utils.PrivatPermissions;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -57,22 +58,16 @@ public class WarpSign implements Listener {
     @EventHandler
     public void OnPlayerClickSign(PlayerInteractEvent event){
         Player player = event.getPlayer();
-        if (player.hasPermission(PrivatPermissions.WARPSIGNUSE.getText())){
-            if (event.getAction() == Action.RIGHT_CLICK_BLOCK){
+        if (event.getAction() == Action.RIGHT_CLICK_BLOCK){
                 if (event.getClickedBlock().getState() instanceof Sign){
+
                     Sign s = (Sign) event.getClickedBlock().getState();
                     if (s.getLine(0).equalsIgnoreCase( ChatColor.DARK_BLUE + "[Warp]")){
                         String a = s.getLine(1);
                         String b = ChatColor.stripColor(a);
                         Bukkit.getServer().dispatchCommand(player,"warp " + b);
-
-
-
                     }
                 }
-            }
-        } else{
-            player.sendMessage(ChatOutput.PREFIX.getText() + ChatOutput.NO_PERMISSIONS.getText());
         }
     }
 }

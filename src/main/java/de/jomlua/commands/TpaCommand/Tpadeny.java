@@ -1,6 +1,8 @@
 package de.jomlua.commands.TpaCommand;
 
 import de.jomlua.utils.ChatOutput;
+import de.jomlua.utils.ChatUtils;
+import de.jomlua.utils.PrivatPermissions;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,7 +18,10 @@ public class Tpadeny implements CommandExecutor {
         Player player = (Player) sender;
 
         if (args.length==0){
-            if (player.hasPermission("jomlua.tpa")){
+            if (!(player.hasPermission(PrivatPermissions.TPA.getText()))){
+                ChatUtils.NoPerm(player);
+                return true;
+            }
                 UUID target = Tpa.tpa.get(player.getUniqueId());
 
                 Player target1 = Bukkit.getPlayer(target);
@@ -32,10 +37,6 @@ public class Tpadeny implements CommandExecutor {
                 } else{
                     player.sendMessage(ChatOutput.PREFIX.getText() + ChatOutput.TPA_DENY_I.getText());
                 }
-
-
-
-            }
 
         }else{
             player.sendMessage("§a- §e/tpadeny");

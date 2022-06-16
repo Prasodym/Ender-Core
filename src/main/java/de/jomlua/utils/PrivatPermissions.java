@@ -12,6 +12,8 @@ public enum PrivatPermissions {
     SPAWNOUT("jomlua.spawn.outher"),
     TP("jomlua.tp"),
     TPOS("jomlua.tpos"),
+    TPHERE("jomlua.tphere"),
+    TPA("jomlua.tpa"),
     WARP("jomlua.warp"),
     DELWARP("jomlua.warp.delete"),
     SETWARP("jomlua.warp.set"),

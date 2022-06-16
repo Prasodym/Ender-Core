@@ -2,6 +2,7 @@ package de.jomlua.commands.TpaCommand;
 
 import de.jomlua.utils.ChatOutput;
 import de.jomlua.utils.ChatUtils;
+import de.jomlua.utils.PrivatPermissions;
 import de.jomlua.utils.modules.TeleportTyp;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -29,7 +30,10 @@ public class Tpa implements CommandExecutor {
 
         Player player = (Player) sender;
         if (args.length==1){
-            if (player.hasPermission("jomlua.tpa")){
+            if (!(player.hasPermission(PrivatPermissions.TPA.getText()))){
+                ChatUtils.NoPerm(player);
+                return true;
+            }
                 try {
                     Player target = Bukkit.getPlayer(args[0]);
                     tpa.put(target.getUniqueId(), player.getUniqueId());
@@ -61,7 +65,7 @@ public class Tpa implements CommandExecutor {
                     replacements.put("%target%", args[0]);
                     player.sendMessage(ChatOutput.PREFIX.getText() + ChatOutput.TPA_DENY_H.getText(replacements)); //r Args0
                 }
-            }
+
 
         }else{
             player.sendMessage("§a- §e/tpa <Player>");

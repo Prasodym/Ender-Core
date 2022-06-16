@@ -53,15 +53,6 @@ public class home implements CommandExecutor {
                     CommandHomeUtil.TeleportHome(player,"home");
                     player.sendMessage(prefix + ChatOutput.COMMAND_HOME_TELEPORT.getText());
 
-                    TextComponent msg = new TextComponent();
-                    msg.setText("Teleport zum Home §a->");
-
-                    TextComponent msga = new TextComponent();
-                    msga.setText(" §c[Teleport]");
-                    msga.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,"/home"));
-                    msga.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("[Teleport]").create()));
-                    msg.addExtra(msga);
-                    player.spigot().sendMessage(msg);
                 }else{
 
                     player.sendMessage(prefix + "Dein Home wurde noch nicht gesetzt");

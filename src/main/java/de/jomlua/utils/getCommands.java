@@ -47,6 +47,7 @@ public class getCommands {
         cmd("setspawn", new SetSpawn());
         cmd("spawn", new Spawn());
         cmd("tp", new Tp());
+        cmd("tphere",new Tp());
         cmd("tpos", new Tp());
         cmd("discord", new discord());
         cmd("warp", new Warp());

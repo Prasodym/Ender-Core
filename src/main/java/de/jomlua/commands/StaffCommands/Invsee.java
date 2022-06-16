@@ -24,7 +24,7 @@ public class Invsee implements CommandExecutor {
             if (args.length == 1){
                 Player target = Bukkit.getServer().getPlayer(args[0]);
 
-                Inventory targetcontainers = Bukkit.createInventory(player,9, ChatColor.translateAlternateColorCodes('&', "Inventar von &c" + target.getDisplayName()));
+                Inventory targetcontainers = Bukkit.createInventory(player,54, ChatColor.translateAlternateColorCodes('&', "Inventar von &c" + target.getDisplayName()));
 
                 if (Bukkit.getServer().getPlayer(args[0]) == null){
                     //no player msg
@@ -46,6 +46,7 @@ public class Invsee implements CommandExecutor {
                 if (target.getInventory().getBoots() != null) {
                     targetcontainers.setItem(3, target.getInventory().getBoots());
                 }
+                targetcontainers.setContents(target.getInventory().getContents());
                 player.openInventory(targetcontainers);
             }else{
                 // Help message

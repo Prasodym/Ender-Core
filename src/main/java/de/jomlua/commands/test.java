@@ -1,7 +1,9 @@
 package de.jomlua.commands;
 
+import de.jomlua.core;
 import de.jomlua.utils.ChatUtils;
 import de.jomlua.utils.CoreCommand;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -29,13 +31,17 @@ public class test extends CoreCommand {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         Player player  = (Player) sender;
+        String Oplayer = null;
 
-        if (sender instanceof Player){
-            ChatUtils.msg(player, "&8[Debug] &4Dieser Test ist bestanden!!");
-        }else{
-            sender.sendMessage("[Debug] &4Dieser Test ist bestanden!!");
+        for (Player players : Bukkit.getServer().getOnlinePlayers()){
+            Oplayer = players.getDisplayName();
         }
+        String format = core.chat.getPlayerPrefix(Bukkit.getPlayer(Oplayer)) + Oplayer;
 
+        for (int msg = 0; msg <  Bukkit.getServer().getOnlinePlayers().size(); msg++){
+
+            ChatUtils.msg(player, format + ", ");
+        }
 
         return false;
     }

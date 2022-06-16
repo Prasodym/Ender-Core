@@ -4,6 +4,7 @@ import de.jomlua.core;
 import de.jomlua.utils.ChatOutput;
 import de.jomlua.utils.ChatUtils;
 import de.jomlua.utils.modules.Chatinterfaces;
+import de.jomlua.utils.modules.TablistModule;
 import de.jomlua.utils.modules.VanishManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -22,6 +23,7 @@ public class JoinListener implements Listener {
     public void OnJoin(PlayerJoinEvent e) throws IOException {
         Player player = e.getPlayer();
         VanishManager vanishManager = core.getPlugin().getvManager();
+
         e.setJoinMessage(ChatUtils.Color("&8[&a+&8] " + player.getDisplayName()));
         SaveJoindata(player);
 
@@ -37,6 +39,8 @@ public class JoinListener implements Listener {
                 ChatUtils.msg(player, a);
             }
         }
+        
+        core.getInstance().getTablistManager().setTabList(player);
     }
 
     private static void SaveJoindata(Player player) throws IOException {

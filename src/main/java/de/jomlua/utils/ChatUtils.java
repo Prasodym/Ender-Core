@@ -104,7 +104,7 @@ public class ChatUtils {
         int a = Bukkit.getOnlinePlayers().size();
         int b = Bukkit.getMaxPlayers();
 
-        return "§a" + a + " §7von§c " + b;
+        return "&7" + a + " &fvon&8 " + b + " &fSpieler";
     }
 
 

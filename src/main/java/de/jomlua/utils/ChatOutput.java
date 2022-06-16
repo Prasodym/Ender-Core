@@ -36,7 +36,9 @@ public enum ChatOutput {
     GETKIT("GiveKit", "&eDu hast ein Kit &c{0} &ebekommen."),
     GETKITUSE("GetKitAlreadyUse", "&cDu hast bereits diesen Kit benutzt."),
     COMMAND_RULES("Rules.Header", "&aAlle Serverregeln, Lese sie bitte komplett durch."),
-    COMMAND_RULES_FOOTER("Rules.Footer", "&7 - &c&nMit der eingabe dieses Commands Akzeptierst du die regeln.");
+    COMMAND_RULES_FOOTER("Rules.Footer", "&7 - &c&nMit der eingabe dieses Commands Akzeptierst du die regeln."),
+    TABHEAD("Tablist.Header", "&6--------- #71fa6eJ#00e097o#00c2b2m#00a1b8l#0080aau#0f5f89a &6---------\n%playercount%"),
+    TABFOOTER("Tablist.Fotter", "&7IP: &avanilla.jomlua.de\n&7Zeit: &a%clock%");
 
 
 

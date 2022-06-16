@@ -5,6 +5,7 @@ import de.jomlua.utils.config.CoreConfig;
 import de.jomlua.utils.enabledPlugin;
 import de.jomlua.utils.getCommands;
 import de.jomlua.utils.getListener;
+import de.jomlua.utils.modules.TablistModule;
 import de.jomlua.utils.modules.VanishManager;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
@@ -32,7 +33,8 @@ public final class core extends JavaPlugin {
     public static Chat chat;
     public static boolean vaultEnabled = true;
     public static List<String> MAPS = worldlist.getStringList("Worlds");
-
+    private TablistModule tablistmodule;
+    public static core instance;
 
     @Override
     public void onEnable() {
@@ -42,6 +44,7 @@ public final class core extends JavaPlugin {
         loadingConfigs();
 
         plugin = this;
+        instance = this;
         this.vManager = new VanishManager(this);
 
         getCommands.setUp();
@@ -54,6 +57,7 @@ public final class core extends JavaPlugin {
         }
         CoreConfig.LoadConfig("rules.yml");
         CoreConfig.LoadConfig("kit.yml");
+        tablistmodule = new TablistModule();
 
     }
 
@@ -97,6 +101,12 @@ public final class core extends JavaPlugin {
         File file = new File("plugins/Ender-Core", "config.yml");
         return YamlConfiguration.loadConfiguration(file);
     }
+    public static core getInstance() {
+        return instance;
+    }
 
 
+    public TablistModule getTablistManager() {
+        return tablistmodule;
+    }
 }

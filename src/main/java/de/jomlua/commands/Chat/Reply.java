@@ -52,7 +52,7 @@ public class Reply implements CommandExecutor {
                         /* TODO Prüfe ob target afk ist, wenn ja dann Title senden.*/
                         target.sendTitle(ChatUtils.setHexText("&e&lAchtung"),ChatUtils.setHexText("&5Du hast eine neue nachricht von " + player.getDisplayName()),1,20,1);
                         target.sendMessage(ChatColor.translateAlternateColorCodes('&',"&a" + prefix + player.getName() + "&7 -> &cDu:&b" + msg));
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&',"&cDu &7-> &a" + prefix + target.getName() + "&8:&b" + msg));
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&',"&cDu &7-> &a" + core.chat.getPlayerPrefix(target) + target.getName() + "&8:&b" + msg));
                     }
                 }
             }
@@ -67,15 +67,17 @@ public class Reply implements CommandExecutor {
                         player.sendMessage("Hast keine msg");
                         return true;
                     }
+
                     if (args.length == 1){
                         Player reciver = ChatUtils.getReply(player);
+
                         String mass = "";
                         for (int i = 0; i < args.length; i++){
                             mass += " " + args[i];
                         }
-
+                        ChatUtils.setReply(reciver,player);
                         reciver.sendMessage(ChatColor.translateAlternateColorCodes('&',"&a" + prefix + player.getName() + "&7 -> &cdu:&b" + mass));
-                        player.sendMessage(ChatColor.translateAlternateColorCodes('&',"&cdu &7-> &a" + prefix + reciver.getName() + "&8:&b" + mass));
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&',"&cdu &7-> &a" + core.chat.getPlayerPrefix(reciver) + reciver.getName() + "&8:&b" + mass));
                     }
                 }
             }
