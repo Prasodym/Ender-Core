@@ -60,8 +60,10 @@ public class getCommands {
         cmd("atphome", new GetHomes());
         cmd("worldmanager", new WorldManager(core.getPlugin()));
         cmd("load", new ReloadServer());
-        cmd("invsee", new Invsee())
-;        cmd("fly", new Fly());
+        cmd("invsee", new Invsee());
+        cmd("fly", new Fly());
+        cmd("day", new SetTime());
+        cmd("nigth", new SetTime());
         cmd("gm", new Gamemode());
         cmd("tpa", new Tpa());
         cmd("tpahere", new Tpahere());

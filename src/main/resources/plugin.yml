@@ -98,4 +98,8 @@ commands:
     description: Hole dir einen Kopf vom anderen Spieler.
   load:
     description: Lade den Server neu.
+  day:
+    description: Setze die zeit auf Tag.
+  nigth:
+    description: Setze die zeit auf Nachts.
 

@@ -31,7 +31,8 @@ public enum PrivatPermissions {
     MSG("jomlua.msg"),
     WARPSIGNADD("jomlua.sign.warpadd"),
     INVSEE("jomlua.admin.invsee"),
-    HEAD("jomlua.admin.head");
+    HEAD("jomlua.admin.head"),
+    SETTIME("jomlua.admin.time");
 
     private String text;
 
