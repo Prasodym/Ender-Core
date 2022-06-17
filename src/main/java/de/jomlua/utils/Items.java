@@ -1,6 +1,8 @@
 package de.jomlua.utils;
 
 public enum Items {
+    // I = Items / B = Block
+    // Enum_ITEM("minecraft:enum_Item", "Enum Item", "I", 5342),
     Air("minecraft:air", "Air","B", 0),
     Stone("minecraft:stone", "Stone", "B",1),
     Cobblestone("minecraft:cobblestone","Cobblestone", "B",2),
