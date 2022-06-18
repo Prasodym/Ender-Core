@@ -31,7 +31,7 @@ Die World Prefix kann über der config ausgeschalten werden
 
 
 
-![2020-12-27_15.41.27.png](https://jomlua.de/image/img1.png)
+![2020-12-27_15.41.27.png](screen_chat.png)
 
 
 - :white_check_mark: - Require Bukkit Vaul Plugin
