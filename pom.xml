@@ -74,10 +74,11 @@
     </repositories>
 
     <dependencies>
+
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.18.1-R0.1-SNAPSHOT</version>
+            <version>1.19-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -106,5 +107,10 @@
             <type>javadoc</type>
             <scope>provided</scope>
         </dependency>
+        <dependency >
+            <groupId >org.spigotmc</groupId >
+            <artifactId >plugin-annotations</artifactId >
+            <version >1.2.3-SNAPSHOT</version >
+        </dependency >
     </dependencies>
 </project>

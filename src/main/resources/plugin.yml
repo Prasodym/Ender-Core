@@ -102,4 +102,6 @@ commands:
     description: Setze die zeit auf Tag.
   nigth:
     description: Setze die zeit auf Nachts.
+  setz:
+    description: Setze blöcke wie auf Woldedit
 

@@ -43,7 +43,7 @@ public class QuitListener implements Listener {
         yml.set("lastplayed.location.pitch", pitch);
         yml.set("lastplayed.time", time.toString());
         yml.save(file);
-        Bukkit.getConsoleSender().sendMessage( ChatOutput.PREFIX.getText() + "Save " + player.getDisplayName() + " userdata in users/" + player.getUniqueId() + ".yml");
+        Bukkit.getConsoleSender().sendMessage( ChatOutput.PREFIXC.getText() + "Save " + player.getDisplayName() + " userdata in users/" + player.getUniqueId() + ".yml");
 
     }
 }

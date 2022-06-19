@@ -12,6 +12,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.spigotmc.*;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -101,6 +102,8 @@ public class Warp implements CommandExecutor, TabCompleter {
                 confirmation.addExtra(hub);
                 hub.addExtra(channel);
                 player.spigot().sendMessage(delete);
+
+
 
 
                 if (args[0].equalsIgnoreCase("confirm")){

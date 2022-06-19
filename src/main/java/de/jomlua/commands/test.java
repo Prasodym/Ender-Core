@@ -3,6 +3,7 @@ package de.jomlua.commands;
 import de.jomlua.core;
 import de.jomlua.utils.ChatUtils;
 import de.jomlua.utils.CoreCommand;
+import de.jomlua.utils.Material;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -33,6 +34,7 @@ public class test extends CoreCommand {
         Player player  = (Player) sender;
         String Oplayer = null;
 
+
         for (Player players : Bukkit.getServer().getOnlinePlayers()){
             Oplayer = players.getDisplayName();
         }
@@ -41,6 +43,7 @@ public class test extends CoreCommand {
         for (int msg = 0; msg <  Bukkit.getServer().getOnlinePlayers().size(); msg++){
 
             ChatUtils.msg(player, format + ", ");
+
         }
 
         return false;

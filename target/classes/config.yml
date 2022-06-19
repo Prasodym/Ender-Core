@@ -21,6 +21,10 @@ Spawn:
 enabled-motd: true
 # Aktiviert das zurückgeben der Xp nach dem Tod.
 give-back-xp-on-death: true
+#gebe hier die liste ein um die liste der Spieler zu sortieren.
+groups:
+  - default
+  - spieler
 # Benachrichtigung wenn ein Spieler in Spiel kommt
 motd-msg:
   - '&8&l|::::::::::::::::::::::::::::::: &3Space &aRemix Server &8&l::::::::::::::::::::::::::::::::>'

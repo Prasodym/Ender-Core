@@ -47,18 +47,18 @@ public class UnNameItem implements CommandExecutor {
                     ChatUtils.SendRgbMsg(player, "&fDas Item &c" + item + " &fwurde umgenannt zu " + arguments+ "&f.");
                 }
                 if (args[0].equalsIgnoreCase("lore")) {
-                    int value;
-
-                    try{
-                        value = Integer.valueOf(args[1]);
-                    }catch (NumberFormatException e){
-                        sender.sendMessage(ChatOutput.PREFIX.getText() + "§c<Line> muss eine ganze Zahl sein.");
-                        return true;
-                    }
+//                    int value;
+//
+//                    try{
+//                        value = Integer.valueOf(args[1]);
+//                    }catch (NumberFormatException e){
+//                        sender.sendMessage(ChatOutput.PREFIX.getText() + "§c<Line> muss eine ganze Zahl sein.");
+//                        return true;
+//                    }
 
 
                     ItemModule.lore(player, lore.split(" "));
-                    player.sendMessage("Line: " + value);
+                    player.sendMessage("Line: True");
 
                 }
             }
