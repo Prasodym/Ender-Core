@@ -95,8 +95,7 @@ public class WorldManager implements CommandExecutor, TabCompleter {
                     } else if (args[1].equalsIgnoreCase("flat")) {
                         player.sendMessage(mw + "§3Die Welt " + name + " wird erstellt!");
                         WorldCreator w = WorldCreator.name(name);
-                        WorldType we = FLAT;
-                        w.type(we);
+                        w.type(FLAT);
                         Bukkit.createWorld(w);
                         Bukkit.getWorlds().add(Bukkit.getWorld(name));
                         MAPS.add(name);
@@ -105,8 +104,7 @@ public class WorldManager implements CommandExecutor, TabCompleter {
                     } else if (args[1].equalsIgnoreCase("large_biomes")) {
                         player.sendMessage(mw + "§3Die Welt " + name + " wird erstellt!");
                         WorldCreator w = WorldCreator.name(name);
-                        WorldType we = LARGE_BIOMES;
-                        w.type(we);
+                        w.type(LARGE_BIOMES);
                         Bukkit.createWorld(w);
                         Bukkit.getWorlds().add(Bukkit.getWorld(name));
                         MAPS.add(name);
@@ -115,8 +113,7 @@ public class WorldManager implements CommandExecutor, TabCompleter {
                     } else if (args[1].equalsIgnoreCase("AMPLIFIED")) {
                         player.sendMessage(mw + "§3Die Welt " + name + " wird erstellt!");
                         WorldCreator w = WorldCreator.name(name);
-                        WorldType we = AMPLIFIED;
-                        w.type(we);
+                        w.type(AMPLIFIED);
                         Bukkit.createWorld(w);
                         Bukkit.getWorlds().add(Bukkit.getWorld(name));
                         MAPS.add(name);
@@ -250,29 +247,46 @@ public class WorldManager implements CommandExecutor, TabCompleter {
             }
         } else if (args[0].equalsIgnoreCase("list")) {
                 if (args.length == 1) {
-                    String[] worldNames = new String[Bukkit.getServer().getWorlds().size()];
-                    int count = 0;
-                    for (World w : Bukkit.getServer().getWorlds()) {
-                        worldNames[count] = w.getName();
-                        count++;
-                    }
+                    if (sender instanceof Player) {
+                        String[] worldNames = new String[Bukkit.getServer().getWorlds().size()];
+                        int count = 0;
+                        for (World w : Bukkit.getServer().getWorlds()) {
+                            worldNames[count] = w.getName();
+                            count++;
+                        }
 
-                    player.sendMessage(mw + "§3Alle aktiven Welten.");
-                    int i = 1;
-                    for (String list : worldNames) {
+                        player.sendMessage(mw + "§3Alle aktiven Welten.");
+                        int i = 1;
+                        for (String list : worldNames) {
 
-                        TextComponent teleport;
-                        TextComponent delete;
-                        TextComponent build;
+                            TextComponent teleport;
+                            TextComponent delete;
+                            TextComponent build;
 
-                        teleport = ChatUtils.TcCommand("&7[&3Teleport&7] ", "/mw tp " + list, "&3Teleportiere zur " + list);
-                        delete = ChatUtils.TcCommand("&7[&cDelete&7]", "/mw delete " + list.toString(), "§cKlicke um §a§l" + list.toString() + " §czu löschen.");
-                        build = ChatUtils.TcText("§e§l" + i++ + " §a" + list + " §7>> ");
+                            teleport = ChatUtils.TcCommand("&7[&3Teleport&7] ", "/mw tp " + list, "&3Teleportiere zur " + list);
+                            delete = ChatUtils.TcCommand("&7[&cDelete&7]", "/mw delete " + list.toString(), "§cKlicke um §a§l" + list.toString() + " §czu löschen.");
+                            build = ChatUtils.TcText("§e§l" + i++ + " §a" + list + " §7>> ");
 
-                        build.addExtra(teleport);
-                        teleport.addExtra(delete);
+                            build.addExtra(teleport);
+                            teleport.addExtra(delete);
 
-                        player.spigot().sendMessage(build);
+                            player.spigot().sendMessage(build);
+                        }
+                    }else{
+                        String[] worldNames = new String[Bukkit.getServer().getWorlds().size()];
+                        int count = 0;
+                        for (World w : Bukkit.getServer().getWorlds()) {
+                            worldNames[count] = w.getName();
+                            count++;
+                        }
+
+                        sender.sendMessage(mw + "§3Alle aktiven Welten.");
+                        int i = 1;
+                        for (String list : worldNames) {
+
+                            sender.sendMessage("§e§l" + i++ + " §a" + list + " §7>> ");
+
+                        }
                     }
                 }
         }
@@ -336,11 +350,12 @@ public class WorldManager implements CommandExecutor, TabCompleter {
         World world1 = Bukkit.getWorld(world);
         Location loc = new Location(world1, 0,100,0);
 
+        assert world1 != null;
         world1.getBlockAt(loc).setType(Material.COBBLESTONE);
     }
     private boolean deleteWorld(File path) {
         if(path.exists()) {
-            File files[] = path.listFiles();
+            File[] files = path.listFiles();
             assert files != null;
             for (File value : files) {
                 if (value.isDirectory()) {

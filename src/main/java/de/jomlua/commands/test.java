@@ -29,6 +29,7 @@ public class test extends CoreCommand {
         return "test";
     }
 
+
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         Player player  = (Player) sender;

@@ -6,6 +6,9 @@ api-version: 1.16
 authors: [ Prasodym ]
 website: https://jomlua.de
 
+loadbefore:
+  - Vault
+
 commands:
   m:
     description: Schreibe einen Spieler Privat.
