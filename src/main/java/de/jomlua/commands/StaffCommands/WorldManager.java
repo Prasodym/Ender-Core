@@ -5,6 +5,7 @@ import de.jomlua.utils.ChatOutput;
 import de.jomlua.utils.ChatUtils;
 import de.jomlua.utils.PrivatPermissions;
 import de.jomlua.utils.modules.WorldManagerModule;
+import de.jomlua.utils.modules.voidgenerator;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.*;
 import org.bukkit.command.Command;
@@ -122,9 +123,7 @@ public class WorldManager implements CommandExecutor, TabCompleter {
                     }else if (args[1].equalsIgnoreCase("void")){
                         player.sendMessage(mw + "§3Die Welt " + name + " wird erstellt!");
                         WorldCreator w = WorldCreator.name(name);
-                        w.type(FLAT);
-                        w.generatorSettings("2;0;1");
-                        w.generateStructures(false);
+                        w.generator(new voidgenerator());
 
 
                         Bukkit.createWorld(w);
@@ -222,19 +221,27 @@ public class WorldManager implements CommandExecutor, TabCompleter {
         } else if (args[0].equalsIgnoreCase("info")) {
             String ani;
             String mons;
+            String struck;
             if (player.getWorld().getAllowAnimals()) {
-                ani = "true";
+                ani = "Ja";
 
             } else {
-                ani = "false";
+                ani = "Nein";
             }
             if (player.getWorld().getAllowMonsters()) {
-                mons = "true";
+                mons = "Ja";
 
             } else {
-                mons = "false";
+                mons = "Nein";
+            }
+
+            if (player.getWorld().canGenerateStructures()){
+                struck = "Aktiviert";
+            }else{
+                struck = "Deaktiviert";
             }
             if (player.hasPermission("jomlua.mv.list")) {
+                player.sendMessage(mw + "§aInfomation von der welt in der du dich befindest:");
                 player.sendMessage("§7 - [§a§l" + player.getWorld().getName() + "] §7-");
                 player.sendMessage("§7--------------------");
                 player.sendMessage("§7| Worldtyp: §c" + player.getWorld().getEnvironment());
@@ -243,6 +250,7 @@ public class WorldManager implements CommandExecutor, TabCompleter {
                 player.sendMessage("§7| Seed: §c" + player.getWorld().getSeed());
                 player.sendMessage("§7| Spawn Tiere: §c" + ani);
                 player.sendMessage("§7| Spawn Monster: §c" + mons);
+                player.sendMessage("§7| Strukturen: §c " + struck);
                 player.sendMessage("§7--------------------");
             }
         } else if (args[0].equalsIgnoreCase("list")) {

@@ -39,7 +39,7 @@ public final class core extends JavaPlugin {
     @Override
     public void onEnable() {
         this.getLogger().log(Level.INFO, ChatColor.YELLOW + ChatOutput.LOADING_PLUGIN.getText());
-        //System.out.println(ChatOutput.LOADING_PLUGIN.getText());
+
 
         loadingConfigs();
 
@@ -75,6 +75,13 @@ public final class core extends JavaPlugin {
         return vManager;
     }
 
+    private boolean setUpChat(){
+        RegisteredServiceProvider<Chat> registeredServiceProvider = getServer().getServicesManager().getRegistration(Chat.class);
+        assert registeredServiceProvider != null;
+        chat = registeredServiceProvider.getProvider();
+        return chat !=null;
+    }
+
     private void loadingConfigs(){
         enabledPlugin.StartLogo();
         FileConfiguration config = this.getConfig();
@@ -86,14 +93,8 @@ public final class core extends JavaPlugin {
             this.getLogger().log(Level.WARNING, "The Vault plugin could not be found, intall it to add also the prefixes from the permission handler");
             vaultEnabled = false;
         }else{
-            Bukkit.getConsoleSender().sendMessage("Vault konnte nicht geladen werden.");
+            Bukkit.getConsoleSender().sendMessage("Vault konnte erfolgreich geladen werden.");
         }
-    }
-
-    private boolean setUpChat(){
-        RegisteredServiceProvider<Chat> registeredServiceProvider = getServer().getServicesManager().getRegistration(Chat.class);
-        chat = registeredServiceProvider.getProvider();
-        return chat !=null;
     }
 
 

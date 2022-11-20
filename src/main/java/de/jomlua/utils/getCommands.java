@@ -49,6 +49,7 @@ public class getCommands {
         cmd("tp", new Tp());
         cmd("tphere",new Tp());
         cmd("setz", new SetAxisBlocks());
+        cmd("thor", new giveThorsAxt());
         cmd("tpos", new Tp());
         cmd("discord", new discord());
         cmd("warp", new Warp());

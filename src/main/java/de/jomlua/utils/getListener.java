@@ -25,6 +25,7 @@ public class getListener {
         pm.registerEvents(new ColoredSigns(),r);
         pm.registerEvents(new WarpSign(),r);
         pm.registerEvents(new SelectAxis(),r);
+        pm.registerEvents(new ThorsAxt(),r);
         //pm.registerEvents(new PermissionPicker(),r);
     }
 }

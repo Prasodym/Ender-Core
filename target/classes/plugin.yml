@@ -2,9 +2,12 @@ name: Ender-Core
 version: 0.4.0
 main: de.jomlua.core
 prefix: Jomlua
-api-version: 1.16
+api-version: 1.19
 authors: [ Prasodym ]
 website: https://jomlua.de
+
+loadbefore:
+  - Vault
 
 commands:
   m:
@@ -104,4 +107,6 @@ commands:
     description: Setze die zeit auf Nachts.
   setz:
     description: Setze blöcke wie auf Woldedit
+  thor:
+    description: Gebe dir die Macht des Blitzes!
 

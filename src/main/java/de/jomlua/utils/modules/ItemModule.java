@@ -98,4 +98,13 @@ public class ItemModule {
         item.setItemMeta(meta);
         return item;
     }
+
+    public static ItemStack getThor(){
+        ItemStack item = new ItemStack(Material.IRON_AXE);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("§4Thor´s Axt");
+        meta.setLocalizedName("thor1");
+        item.setItemMeta(meta);
+        return item;
+    }
 }

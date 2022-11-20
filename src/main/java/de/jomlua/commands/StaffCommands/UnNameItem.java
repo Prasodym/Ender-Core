@@ -19,6 +19,7 @@ public class UnNameItem implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         Player player = (Player) sender;
+
         if (!(player.hasPermission(PrivatPermissions.ITEMUNNAME.getText()))) {
             ChatUtils.SendRgbMsg(player, ChatOutput.PREFIX.getText() + ChatOutput.NO_PERMISSIONS.getText());
             return true;
@@ -30,12 +31,12 @@ public class UnNameItem implements CommandExecutor {
 
         if (command.getName().equalsIgnoreCase(CommandName)) {
             if (args.length >= 1) {
-                String arguments = "";
+                String arguments = " ";
                 for (int i = 1; i < args.length; i++) {
                     arguments += args[i] + " ";
                 }
 
-                String lore = "";
+                String lore = " ";
                 for (int i = 2; i < args.length; i++) {
                     lore += args[i] + " ";
                 }
