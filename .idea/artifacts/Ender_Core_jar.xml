@@ -2,7 +2,7 @@
   <artifact type="jar" name="Ender-Core:jar">
     <output-path>$PROJECT_DIR$/../../Plugin Etwiklung/Server-1.18.1/plugins</output-path>
     <root id="archive" name="Ender-Core.jar">
-      <element id="module-output" name="Core-1.12.2" />
+      <element id="module-output" name="Ender-core" />
     </root>
   </artifact>
 </component>

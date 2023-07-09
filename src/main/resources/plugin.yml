@@ -2,7 +2,7 @@ name: Ender-Core
 version: ${project.version}
 main: de.jomlua.core
 prefix: Jomlua
-api-version: 1.19
+api-version: '1.20'
 authors: [ Prasodym ]
 website: https://jomlua.de
 
@@ -109,4 +109,8 @@ commands:
     description: Setze blöcke wie auf Woldedit
   thor:
     description: Gebe dir die Macht des Blitzes!
+  server:
+    description: Infomation über dem Server.
+  gct:
+    description: Gebe dir die Macht des GameChangers!
 

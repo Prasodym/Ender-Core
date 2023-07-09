@@ -23,6 +23,7 @@ public class SetTime implements CommandExecutor {
             ChatUtils.NoPerm(player);
             return true;
         }
+
         if (!(sender instanceof Player)){
             ChatUtils.setHexText(ChatOutput.PREFIXC.getText() + ChatOutput.NO_PLAYER.getText());
             return true;

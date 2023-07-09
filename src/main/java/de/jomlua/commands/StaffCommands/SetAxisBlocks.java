@@ -58,6 +58,7 @@ public class SetAxisBlocks implements CommandExecutor, TabCompleter {
                     //SetSelBlock.position2.remove(player);
 
                     ChatUtils.msg(player, ChatOutput.PREFIX.getText() + "&7Setze &a " + zahl +" §7mal &a" + args[0].toLowerCase());
+                    ChatUtils.msg(player, list.toString());
 
                 }catch (NullPointerException e){
                     ChatUtils.msg(player, ChatOutput.PREFIX.getText() + "&cMarkiere erst deine Region! ");

@@ -32,7 +32,9 @@ public enum PrivatPermissions {
     WARPSIGNADD("jomlua.sign.warpadd"),
     INVSEE("jomlua.admin.invsee"),
     HEAD("jomlua.admin.head"),
-    SETTIME("jomlua.admin.time");
+    SETTIME("jomlua.admin.time"),
+
+    SERVER("jomlua.admin.serverinfo");
 
     private String text;
 

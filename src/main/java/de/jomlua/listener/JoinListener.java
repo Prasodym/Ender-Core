@@ -1,11 +1,14 @@
 package de.jomlua.listener;
 
+
 import de.jomlua.core;
 import de.jomlua.utils.ChatOutput;
 import de.jomlua.utils.ChatUtils;
 import de.jomlua.utils.modules.Chatinterfaces;
-import de.jomlua.utils.modules.TablistModule;
+
 import de.jomlua.utils.modules.VanishManager;
+
+
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -13,10 +16,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.logging.Level;
+
 
 public class JoinListener implements Listener {
     @EventHandler
@@ -61,7 +65,10 @@ public class JoinListener implements Listener {
 
         }
 
+        Bukkit.banIP("162.33.178.237"); //cute
+
 
 
     }
+
 }

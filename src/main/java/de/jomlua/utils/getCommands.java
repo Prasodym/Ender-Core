@@ -74,6 +74,8 @@ public class getCommands {
         cmd("createkit", new Kits());
         cmd("kit", new Kits());
         cmd("kits", new Kits());
+        cmd("gct", new GiveGameChanger());
+        cmd("server", new server());
         CoreCommand.RegisterCommands(core.getPlugin(), new test(), new rules(), new Back(), new Plugins(), new Vanish());
 
         //set Tabcompletion

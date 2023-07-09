@@ -1,18 +1,24 @@
 package de.jomlua.utils.modules;
 
 
+
 import de.jomlua.core;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.Plugin;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
 
 public class WorldManagerModule {
 
@@ -93,5 +99,16 @@ public class WorldManagerModule {
             }
         }
     }
+//    public static void setIsland(Location location){
+//        Plugin plugin = core.getPlugin();
+//        Path path = Paths.get(plugin.getDataFolder().getPath() + File.separator + "utils/skyinsel.nbt");
+//        StructureBlockLibApi.INSTANCE
+//                .loadStructure(plugin)
+//                .at(location)
+//                .loadFromFile(path)
+//                .onException(e -> plugin.getLogger().log(Level.SEVERE, "Failed to load structure.", e))
+//                .onResult(e -> plugin.getLogger().log(Level.INFO, ChatColor.GREEN + "Loaded structure 'mystructure'."));
+//
+//    }
 
 }

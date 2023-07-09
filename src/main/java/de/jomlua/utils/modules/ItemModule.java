@@ -107,4 +107,24 @@ public class ItemModule {
         item.setItemMeta(meta);
         return item;
     }
+
+    public static ItemStack getGM(){
+        ItemStack item = new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE);
+
+        List<String> lore = new ArrayList<>();
+        ItemMeta meta = item.getItemMeta();
+
+        lore.add("§eAchtung!");
+        lore.add("§3Dieses Item sind nur dür das Adminteam");
+        lore.add("§3gedacht. Solltes du eins finden gebe dies");
+        lore.add("§3bitte an das Team ab.");
+        lore.add("§7Bei nicht abgabe wird es im System rot ");
+        lore.add("§7angezeigt so das wir drauf kommen wer die gerade benutzt.");
+
+        meta.setDisplayName("§4§lGame§c§lChanger");
+        meta.setLore(lore);
+        meta.setLocalizedName("gm147");
+        item.setItemMeta(meta);
+        return item;
+    }
 }

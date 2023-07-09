@@ -22,6 +22,8 @@ import java.io.File;
 import java.util.List;
 import java.util.logging.Level;
 
+import static de.jomlua.utils.modules.BotBlocker.blockedIPs;
+import static de.jomlua.utils.modules.BotBlocker.loadBlockedIPs;
 
 
 public final class core extends JavaPlugin {
@@ -40,7 +42,7 @@ public final class core extends JavaPlugin {
     public void onEnable() {
         this.getLogger().log(Level.INFO, ChatColor.YELLOW + ChatOutput.LOADING_PLUGIN.getText());
 
-
+        blockedIPs = loadBlockedIPs();
         loadingConfigs();
 
         plugin = this;

@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 
 public class Teleport {
@@ -38,10 +39,10 @@ public class Teleport {
         return location;
     }
     public static Location DefaultHome(Player player){
-        File file = new File(core.plugin.getDataFolder(), player.getUniqueId() + ".yml");
+        File file = new File(core.plugin.getDataFolder(), "/users" + player.getUniqueId() + ".yml");
         YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
 
-        World world = Bukkit.getWorld(config.getString("homes.home.world"))   ;
+        World world = Bukkit.getWorld(config.getString("homes.home.world"));
         double x = config.getDouble("homes.home.x");
         double y = config.getDouble("homes.home.y");
         double z = config.getDouble("homes.home.z");

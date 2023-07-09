@@ -4,6 +4,7 @@ import de.jomlua.core;
 import de.jomlua.listener.*;
 import de.jomlua.listener.Signs.ColoredSigns;
 import de.jomlua.listener.Signs.WarpSign;
+import de.jomlua.utils.modules.BotBlocker;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 
@@ -24,8 +25,10 @@ public class getListener {
         pm.registerEvents(new CommandEvent(),r);
         pm.registerEvents(new ColoredSigns(),r);
         pm.registerEvents(new WarpSign(),r);
-        pm.registerEvents(new SelectAxis(),r);
+        //pm.registerEvents(new SelectAxis(),r);
         pm.registerEvents(new ThorsAxt(),r);
+        pm.registerEvents(new GameChangers(),r);
+        pm.registerEvents(new BotBlocker(),r);
         //pm.registerEvents(new PermissionPicker(),r);
     }
 }
